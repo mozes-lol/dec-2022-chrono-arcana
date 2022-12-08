@@ -29,24 +29,19 @@ export var stamina_consump = 50
 
 var can_move = true
 
-var ability_disabled = false
-var ability_active = false
-var ability_inuse = false
-var ability_cooldown = false
-
 onready var anim = $AnimatedSprite
 var normal_animspeed = 1.8
 var sneaking_animspeed = 1.2
 
 onready var current_level
-onready var enemybody = get_tree().get_nodes_in_group("enemy")
+#onready var enemybody = get_tree().get_nodes_in_group("enemy")
 
 var rng = RandomNumberGenerator.new()
 
 var state_machine
 
 func _ready():
-	current_level = $"../../../"
+	current_level = $"../"
 	if current_level != null and current_level.get_node_or_null("spawnpos") != null:
 		position = current_level.get_node("spawnpos").position
 	
@@ -77,15 +72,6 @@ func _input(_event):
 	
 	if Input.is_action_just_released("shift"):
 		sneakorslide_release()
-	
-	
-	if Input.is_action_just_pressed("ability"):
-		if ability_disabled == false:
-			if ability_active:
-				ability_active = false
-			else:
-				ability_active = true
-			ability()
 
 
 func _process(_delta):
@@ -108,13 +94,10 @@ func _process(_delta):
 	if sliding:
 		while_sliding()
 	
-	
 	sprite_anim()
 	
-	if ability_active:
-		anim.modulate = lerp(anim.modulate, Color(0.27, 0.27, 0.27, 0.7), 0.05)
-	else:
-		anim.modulate = lerp(anim.modulate, Color(1, 1, 1, 1), 0.05)
+	$HealthBar.value = health
+	$StaminaBar.value = stamina
 
 
 func _physics_process(_delta):
@@ -210,11 +193,6 @@ func _on_Dash_Length_timeout():
 	dashing = false
 	if sliding == true:
 		speed = dash_speed
-	elif ability_active:
-		play_anim(false)
-		speed = normal_speed
-		accel = normal_accel
-		$hitbox/hitboxshape.disabled = false
 	else:
 		speed = normal_speed
 		accel = normal_accel
@@ -295,28 +273,3 @@ func play_anim(status):
 	else:
 		anim.frame = 0
 		anim.stop()
-
-
-
-func ability():
-	if  ability_active:
-		play_anim(false)
-		can_move = false
-		
-		$walkarea.disabled = true
-		$hitbox/hitboxshape.disabled = true
-		
-		if ability_inuse == false:
-			ability_inuse = true
-			$Ability_Length.start()
-	else:
-		$Ability_Length.stop()
-		ability_inuse = false
-		can_move = true
-		
-		$walkarea.disabled = false
-		$hitbox/hitboxshape.disabled = false
-
-func _on_Ability_Length_timeout():
-	ability_active = false
-	ability()

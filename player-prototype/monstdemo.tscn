@@ -5,7 +5,6 @@
 [ext_resource path="res://player-prototype/prototype-assets/3monst.png" type="Texture" id=3]
 [ext_resource path="res://player-prototype/monstdemo.gd" type="Script" id=4]
 
-
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 2 ) ],

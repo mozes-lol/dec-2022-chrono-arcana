@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-onready var player = get_node("/root/leveldemo/player1demo")
+onready var player = get_node_or_null("/root/leveldemo/player1demo")
 
 var rng = RandomNumberGenerator.new()
 
@@ -18,7 +18,8 @@ func _ready():
 
 func _on_LoadTime_timeout():
 	# Calculate the position of the player relative to the skeleton
-	var player_relative_position = player.position - position
+	if player != null:
+		var _player_relative_position = player.position - position
 	
 #	if player_relative_position.length() <= 50:
 #		# If player is near, don't move but turn toward it
@@ -40,7 +41,7 @@ func _on_LoadTime_timeout():
 			$MoveTime.start()
 			
 
-func _process(delta):
+func _process(_delta):
 	if $MoveTime.time_left > 0:
 		if rotation_dir < 0.5:
 			$sight.rotation += 0.01
@@ -49,8 +50,8 @@ func _process(delta):
 		velocity = Vector2.RIGHT.rotated($sight.rotation) * speed
 
 func _physics_process(delta):
-	var movement = velocity * delta
-	var collision = move_and_slide(velocity)
+	var _movement = velocity * delta
+	var _collision = move_and_slide(velocity)
 	
 	SightCheck()
 
@@ -67,29 +68,30 @@ func _on_sight_body_exited(body):
 #		print("in range: ", player_in_range)
 
 func SightCheck():
-	var player_relative_position = player.position - position
-	
-	if player_in_range == true:
-		var space_state = get_world_2d().direct_space_state
-		var sight_check = space_state.intersect_ray(position, player.position, [self], collision_mask)
-		if sight_check:
-			if sight_check.collider.name == "player1demo":
-				player_in_sight = true
-				player_was_seen = true
-#				print("in sight: ", player_in_sight)
-				speed = 600
-				$sight.look_at(player.position)
-				velocity = player_relative_position.normalized() * speed
-				last_player_pos = player.position
-#				print(player.position)
-			else:
-				player_in_sight = false
-#				print("in sight: ", player_in_sight)
-				if player_was_seen == true:
-					$sight.look_at(last_player_pos)
-				if player_was_seen == true and $LastSeenTime.time_left == 0:
-					$LastSeenTime.start()
-					yield($LastSeenTime, "timeout")
-					player_was_seen = false
+	if player != null:
+		var player_relative_position = player.position - position
+		
+		if player_in_range == true:
+			var space_state = get_world_2d().direct_space_state
+			var sight_check = space_state.intersect_ray(position, player.position, [self], collision_mask)
+			if sight_check:
+				if sight_check.collider.name == "player1demo":
+					player_in_sight = true
+					player_was_seen = true
+	#				print("in sight: ", player_in_sight)
+					speed = 600
+					$sight.look_at(player.position)
+					velocity = player_relative_position.normalized() * speed
+					last_player_pos = player.position
+	#				print(player.position)
 				else:
-					speed = 400
+					player_in_sight = false
+	#				print("in sight: ", player_in_sight)
+					if player_was_seen == true:
+						$sight.look_at(last_player_pos)
+					if player_was_seen == true and $LastSeenTime.time_left == 0:
+						$LastSeenTime.start()
+						yield($LastSeenTime, "timeout")
+						player_was_seen = false
+					else:
+						speed = 400

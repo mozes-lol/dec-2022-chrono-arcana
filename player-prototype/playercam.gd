@@ -6,7 +6,7 @@ onready var player = get_node("/root/leveldemo/player1demo")
 func _ready():
 	pass
 
-func _process(delta):
+func _process(_delta):
 	var mouse = get_viewport().get_mouse_position()
 	position = player.position
 
@@ -15,10 +15,3 @@ func _process(delta):
 		$responsivecam.position = (mouse - (OS.get_window_size())/2)
 	else:
 		$responsivecam.position = player.position
-
-
-func _on_player1demo_stamina_change(stamina):
-	$StaminaBar.set_value(stamina)
-
-func _on_player1demo_health_change(health):
-	$HealthBar.set_value(health)
