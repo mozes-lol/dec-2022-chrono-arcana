@@ -1,6 +1,6 @@
 extends Node2D
 
-onready var player = get_node("/root/leveldemo/player1demo")
+onready var player = get_node("/root/leveldemo/player2")
 
 
 func _ready():
