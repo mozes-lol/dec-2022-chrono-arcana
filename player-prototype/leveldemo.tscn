@@ -1,5 +1,6 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
+[ext_resource path="res://player-prototype/player2.tscn" type="PackedScene" id=1]
 [ext_resource path="res://player-prototype/playercam.gd" type="Script" id=2]
 [ext_resource path="res://player-prototype/prototype-assets/d38lk4g-32855cb0-fc73-4249-abdf-100d37d9d01c.png" type="Texture" id=3]
 [ext_resource path="res://player-prototype/monstdemo.tscn" type="PackedScene" id=4]
@@ -265,3 +266,6 @@ shape = SubResource( 10 )
 [node name="wall44" type="CollisionShape2D" parent="mapwalls"]
 position = Vector2( 0, -312 )
 shape = SubResource( 11 )
+
+[node name="player_A" parent="." instance=ExtResource( 1 )]
+position = Vector2( -194, 191 )
