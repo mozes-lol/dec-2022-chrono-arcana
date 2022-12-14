@@ -1,15 +1,19 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://player-prototype/prototype-assets/Cecile_PlayerA/Cecil-Front1.png" type="Texture" id=1]
+[ext_resource path="res://2.5DPlayerTest.gd" type="Script" id=2]
 
 [sub_resource type="BoxShape" id=1]
 
 [node name="25DPlayerTest" type="KinematicBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.999536, 0 )
+script = ExtResource( 2 )
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform( 4.38374, 0.00715421, -0.000556949, -0.00751504, 3.97138, -0.423418, -0.00081726, 1.85616, 0.905934, 0, -0.0819291, 0 )
+use_in_baked_light = true
+alpha_cut = 2
+texture = ExtResource( 1 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 shape = SubResource( 1 )
-
-[node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform( 4.38375, 0, 0, 0, 3.97302, -0.422618, 0, 1.85265, 0.906308, 0, -0.0819291, 0 )
-texture = ExtResource( 1 )
