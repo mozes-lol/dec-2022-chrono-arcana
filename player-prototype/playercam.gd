@@ -1,6 +1,6 @@
 extends Node2D
 
-onready var player = get_node("/root/leveldemo/player2")
+onready var player = get_node("/root/leveldemo/player_A")
 
 
 func _ready():
@@ -11,7 +11,7 @@ func _process(_delta):
 	position = player.position
 
 	
-	if mouse != Vector2(0, 0):
-		$responsivecam.position = (mouse - (OS.get_window_size())/2)
-	else:
-		$responsivecam.position = player.position
+##	if mouse != Vector2(0, 0):
+##		$responsivecam.position = (mouse - (OS.get_window_size())/2)
+##	else:
+##		$responsivecam.position = player.position
