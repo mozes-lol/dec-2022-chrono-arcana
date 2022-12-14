@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 export var normal_speed = 1200
-export var dash_speed = 2000
+export var dash_speed = 4000
 export var crouch_speed = 500
 var speed = normal_speed
 var velocity = Vector2.ZERO
@@ -25,7 +25,7 @@ var dashing = false
 var can_dash = true
 export var max_stamina = 100
 var stamina = max_stamina
-export var stamina_consump = 50
+export var stamina_consump = 0
 
 var can_move = true
 
