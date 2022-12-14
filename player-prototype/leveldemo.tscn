@@ -5,31 +5,31 @@
 [ext_resource path="res://player-prototype/prototype-assets/d38lk4g-32855cb0-fc73-4249-abdf-100d37d9d01c.png" type="Texture" id=3]
 [ext_resource path="res://player-prototype/monstdemo.tscn" type="PackedScene" id=4]
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 160, 1376 )
 
-[sub_resource type="CapsuleShape2D" id=5]
+[sub_resource type="CapsuleShape2D" id=2]
 radius = 120.0
 height = 336.0
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 296, 40 )
 
-[sub_resource type="CapsuleShape2D" id=7]
+[sub_resource type="CapsuleShape2D" id=4]
 radius = 104.0
 height = 140.0
 
-[sub_resource type="CapsuleShape2D" id=8]
+[sub_resource type="CapsuleShape2D" id=5]
 radius = 56.0002
 height = 192.0
 
-[sub_resource type="RectangleShape2D" id=9]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 64, 48 )
 
-[sub_resource type="RectangleShape2D" id=10]
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 32, 32 )
 
-[sub_resource type="CapsuleShape2D" id=11]
+[sub_resource type="CapsuleShape2D" id=8]
 radius = 96.0
 
 [node name="leveldemo" type="Node"]
@@ -70,202 +70,202 @@ collision_mask = 3
 
 [node name="wall1" type="CollisionShape2D" parent="mapwalls"]
 position = Vector2( -1288, 0 )
-shape = SubResource( 4 )
+shape = SubResource( 1 )
 
 [node name="wall2" type="CollisionShape2D" parent="mapwalls"]
 position = Vector2( 1280, 8 )
-shape = SubResource( 4 )
+shape = SubResource( 1 )
 
 [node name="wall3" type="CollisionShape2D" parent="mapwalls"]
 position = Vector2( -1096, 752 )
-shape = SubResource( 5 )
+shape = SubResource( 2 )
 
 [node name="wall4" type="CollisionShape2D" parent="mapwalls"]
 position = Vector2( -1120, 864 )
 rotation = 1.57079
-shape = SubResource( 5 )
+shape = SubResource( 2 )
 
 [node name="wall5" type="CollisionShape2D" parent="mapwalls"]
 position = Vector2( -824, 1008 )
 rotation = 1.57079
-shape = SubResource( 5 )
+shape = SubResource( 2 )
 
 [node name="wall6" type="CollisionShape2D" parent="mapwalls"]
 position = Vector2( -128, 1336 )
-shape = SubResource( 6 )
+shape = SubResource( 3 )
 
 [node name="wall7" type="CollisionShape2D" parent="mapwalls"]
 position = Vector2( -8, -1336 )
-shape = SubResource( 6 )
+shape = SubResource( 3 )
 
 [node name="wall8" type="CollisionShape2D" parent="mapwalls"]
 position = Vector2( -552, 1144 )
 rotation = 1.57079
-shape = SubResource( 5 )
+shape = SubResource( 2 )
 
 [node name="wall9" type="CollisionShape2D" parent="mapwalls"]
 position = Vector2( -384, 1312 )
-shape = SubResource( 5 )
+shape = SubResource( 2 )
 
 [node name="wall10" type="CollisionShape2D" parent="mapwalls"]
 position = Vector2( 96, 1312 )
-shape = SubResource( 5 )
+shape = SubResource( 2 )
 
 [node name="wall11" type="CollisionShape2D" parent="mapwalls"]
 position = Vector2( 336, 1144 )
 rotation = 1.57079
-shape = SubResource( 5 )
+shape = SubResource( 2 )
 
 [node name="wall12" type="CollisionShape2D" parent="mapwalls"]
 position = Vector2( 824, 1008 )
 rotation = 1.57079
-shape = SubResource( 5 )
+shape = SubResource( 2 )
 
 [node name="wall13" type="CollisionShape2D" parent="mapwalls"]
 position = Vector2( 1104, 736 )
 rotation = 6.28318
-shape = SubResource( 5 )
+shape = SubResource( 2 )
 
 [node name="wall14" type="CollisionShape2D" parent="mapwalls"]
 position = Vector2( 952, 416 )
 rotation = 6.28318
-shape = SubResource( 5 )
+shape = SubResource( 2 )
 
 [node name="wall15" type="CollisionShape2D" parent="mapwalls"]
 position = Vector2( 848, 424 )
 rotation = 1.57079
-shape = SubResource( 5 )
+shape = SubResource( 2 )
 
 [node name="wall16" type="CollisionShape2D" parent="mapwalls"]
 position = Vector2( 840, 320 )
 rotation = 1.57079
-shape = SubResource( 5 )
+shape = SubResource( 2 )
 
 [node name="wall17" type="CollisionShape2D" parent="mapwalls"]
 position = Vector2( 544, 496 )
-shape = SubResource( 6 )
+shape = SubResource( 3 )
 
 [node name="wall18" type="CollisionShape2D" parent="mapwalls"]
 position = Vector2( 544, 392 )
-shape = SubResource( 6 )
+shape = SubResource( 3 )
 
 [node name="wall19" type="CollisionShape2D" parent="mapwalls"]
 position = Vector2( 288, 504 )
 rotation = 1.57079
-shape = SubResource( 7 )
+shape = SubResource( 4 )
 
 [node name="wall20" type="CollisionShape2D" parent="mapwalls"]
 position = Vector2( 288, 376 )
 rotation = 1.57079
-shape = SubResource( 7 )
+shape = SubResource( 4 )
 
 [node name="wall21" type="CollisionShape2D" parent="mapwalls"]
 position = Vector2( 360, 320 )
-shape = SubResource( 7 )
+shape = SubResource( 4 )
 
 [node name="wall22" type="CollisionShape2D" parent="mapwalls"]
 position = Vector2( 1088, 96 )
-shape = SubResource( 7 )
+shape = SubResource( 4 )
 
 [node name="wall23" type="CollisionShape2D" parent="mapwalls"]
 position = Vector2( 944, 232 )
-shape = SubResource( 7 )
+shape = SubResource( 4 )
 
 [node name="wall24" type="CollisionShape2D" parent="mapwalls"]
 position = Vector2( -360, -448 )
-shape = SubResource( 7 )
+shape = SubResource( 4 )
 
 [node name="wall25" type="CollisionShape2D" parent="mapwalls"]
 position = Vector2( -216, -1280 )
-shape = SubResource( 7 )
+shape = SubResource( 4 )
 
 [node name="wall26" type="CollisionShape2D" parent="mapwalls"]
 position = Vector2( 224, -1272 )
-shape = SubResource( 7 )
+shape = SubResource( 4 )
 
 [node name="wall27" type="CollisionShape2D" parent="mapwalls"]
 position = Vector2( -344, -992 )
-shape = SubResource( 7 )
+shape = SubResource( 4 )
 
 [node name="wall28" type="CollisionShape2D" parent="mapwalls"]
 position = Vector2( -344, -784 )
-shape = SubResource( 7 )
+shape = SubResource( 4 )
 
 [node name="wall29" type="CollisionShape2D" parent="mapwalls"]
 position = Vector2( -784, -240 )
 rotation = 1.57079
-shape = SubResource( 7 )
+shape = SubResource( 4 )
 
 [node name="wall30" type="CollisionShape2D" parent="mapwalls"]
 position = Vector2( -656, -240 )
 rotation = 1.57079
-shape = SubResource( 7 )
+shape = SubResource( 4 )
 
 [node name="wall31" type="CollisionShape2D" parent="mapwalls"]
 position = Vector2( -512, -384 )
 rotation = 1.57079
-shape = SubResource( 7 )
+shape = SubResource( 4 )
 
 [node name="wall32" type="CollisionShape2D" parent="mapwalls"]
 position = Vector2( -288, -384 )
 rotation = 1.57079
-shape = SubResource( 7 )
+shape = SubResource( 4 )
 
 [node name="wall33" type="CollisionShape2D" parent="mapwalls"]
 position = Vector2( -1008, -656 )
 rotation = 1.57079
-shape = SubResource( 7 )
+shape = SubResource( 4 )
 
 [node name="wall34" type="CollisionShape2D" parent="mapwalls"]
 position = Vector2( -792, -464 )
-shape = SubResource( 7 )
+shape = SubResource( 4 )
 
 [node name="wall35" type="CollisionShape2D" parent="mapwalls"]
 position = Vector2( -264, -496 )
 rotation = 1.57079
-shape = SubResource( 7 )
+shape = SubResource( 4 )
 
 [node name="wall36" type="CollisionShape2D" parent="mapwalls"]
 position = Vector2( -168, -616 )
 rotation = 1.57079
-shape = SubResource( 8 )
+shape = SubResource( 5 )
 
 [node name="wall37" type="CollisionShape2D" parent="mapwalls"]
 position = Vector2( 360, -1200 )
 rotation = 1.57079
-shape = SubResource( 7 )
+shape = SubResource( 4 )
 
 [node name="wall38" type="CollisionShape2D" parent="mapwalls"]
 position = Vector2( 576, -1200 )
 rotation = 1.57079
-shape = SubResource( 7 )
+shape = SubResource( 4 )
 
 [node name="wall39" type="CollisionShape2D" parent="mapwalls"]
 position = Vector2( 856, -1080 )
 rotation = 1.57079
-shape = SubResource( 7 )
+shape = SubResource( 4 )
 
 [node name="wall40" type="CollisionShape2D" parent="mapwalls"]
 position = Vector2( 1008, -928 )
 rotation = 1.57079
-shape = SubResource( 7 )
+shape = SubResource( 4 )
 
 [node name="wall41" type="CollisionShape2D" parent="mapwalls"]
 position = Vector2( 1152, -792 )
 rotation = 1.57079
-shape = SubResource( 7 )
+shape = SubResource( 4 )
 
 [node name="wall42" type="CollisionShape2D" parent="mapwalls"]
 position = Vector2( -144, 760 )
-shape = SubResource( 9 )
+shape = SubResource( 6 )
 
 [node name="wall43" type="CollisionShape2D" parent="mapwalls"]
 position = Vector2( -616, 312 )
-shape = SubResource( 10 )
+shape = SubResource( 7 )
 
 [node name="wall44" type="CollisionShape2D" parent="mapwalls"]
 position = Vector2( 0, -312 )
-shape = SubResource( 11 )
+shape = SubResource( 8 )
 
 [node name="player_A" parent="." instance=ExtResource( 1 )]
 position = Vector2( -194, 191 )

@@ -108,7 +108,6 @@ func _physics_process(_delta):
 		if input_velocity.length() > 0:
 			velocity.x = move_toward(velocity.x, input_velocity.x, accel) #velocity.linear_interpolate(input_velocity, 0.2)
 			velocity.z = move_toward(velocity.z, input_velocity.z, accel)
-			print("bruh")
 		else:
 			velocity.x = move_toward(velocity.x, 0, deccel) #velocity.linear_interpolate(Vector2.ZERO, 0.2)
 			velocity.z = move_toward(velocity.z, 0, deccel)
