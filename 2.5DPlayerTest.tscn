@@ -11,10 +11,11 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.999536, 0 )
 script = ExtResource( 2 )
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform( 4.38374, 0.00715421, -0.000556949, -0.00751504, 3.97138, -0.423418, -0.00081726, 1.85616, 0.905934, 0, -0.0819291, 0 )
+transform = Transform( 4.38375, 0, 0, 0, 3.59096, -0.573576, 0, 2.51441, 0.819152, 0, -0.154142, 0 )
 use_in_baked_light = true
 alpha_cut = 2
 texture = ExtResource( 1 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1.18228, 0, 0, 0 )
 shape = SubResource( 1 )
