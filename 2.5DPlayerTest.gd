@@ -1,7 +1,7 @@
 extends KinematicBody
 
 export var normal_speed = 10
-export var dash_speed = 2000
+export var dash_speed = 30
 export var crouch_speed = 500
 var speed = normal_speed
 var velocity = Vector3.ZERO
@@ -10,6 +10,7 @@ export var normal_accel = 5
 export var normal_deccel = 5
 var accel = normal_accel
 var deccel = normal_deccel
+var positionY
 
 var can_flashlight = false
 var flash_light = false
@@ -41,6 +42,7 @@ var rng = RandomNumberGenerator.new()
 var state_machine
 
 func _ready():
+	positionY = translation.y
 	current_level = $"../"
 	if current_level != null and current_level.get_node_or_null("spawnpos") != null:
 		pass
@@ -78,6 +80,8 @@ func _input(_event):
 func _process(_delta):
 ##	$flashlightcont.look_at(get_global_mouse_position())
 	
+	translation.y = positionY
+	
 	if health < 0:
 		health = 0
 	if stamina < 0:
@@ -112,7 +116,7 @@ func _physics_process(_delta):
 			velocity.x = move_toward(velocity.x, 0, deccel) #velocity.linear_interpolate(Vector2.ZERO, 0.2)
 			velocity.z = move_toward(velocity.z, 0, deccel)
 		
-		velocity = move_and_slide(velocity)
+		velocity = move_and_slide(transform.basis.xform(velocity))
 	else:
 		velocity = Vector3.ZERO
 
@@ -178,7 +182,7 @@ func _on_HealthRegen_timeout():
 
 
 func dash():
-	if can_dash and stamina >= stamina_consump and velocity != Vector2.ZERO:
+	if can_dash and stamina >= stamina_consump and velocity != Vector3.ZERO:
 		dashing = true
 		can_dash = false
 		stamina -= stamina_consump
@@ -186,7 +190,7 @@ func dash():
 		accel = speed
 #		anim.frame = 1
 #		anim.stop()
-		$hitbox/hitboxshape.disabled = true
+#		$hitbox/hitboxshape.disabled = true
 		$Dash_Length.start()
 		$Dash_Cooldown.start()
 
@@ -198,7 +202,7 @@ func _on_Dash_Length_timeout():
 		speed = normal_speed
 		accel = normal_accel
 		play_anim(true)
-		$hitbox/hitboxshape.disabled = false
+#		$hitbox/hitboxshape.disabled = false
 	
 
 func _on_Dash_Cooldown_timeout():

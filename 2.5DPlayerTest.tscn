@@ -17,5 +17,16 @@ alpha_cut = 2
 texture = ExtResource( 1 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1.18228, 0, 0, 0 )
+transform = Transform( 3.38374, 0, 0, 0, 4.75634, 0, 0, 0, 3.2718, 0, 0, 0 )
 shape = SubResource( 1 )
+
+[node name="Dash_Length" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
+
+[node name="Dash_Cooldown" type="Timer" parent="."]
+wait_time = 0.001
+one_shot = true
+
+[connection signal="timeout" from="Dash_Length" to="." method="_on_Dash_Length_timeout"]
+[connection signal="timeout" from="Dash_Cooldown" to="." method="_on_Dash_Cooldown_timeout"]
