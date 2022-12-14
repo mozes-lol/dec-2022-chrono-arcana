@@ -1,13 +1,13 @@
 extends KinematicBody2D
 
-export var normal_speed = 800
+export var normal_speed = 1200
 export var dash_speed = 2000
 export var crouch_speed = 500
 var speed = normal_speed
 var velocity = Vector2.ZERO
 var input_velocity = Vector2.ZERO
-export var normal_accel = 120
-export var normal_deccel = 120
+export var normal_accel = 480
+export var normal_deccel = 480
 var accel = normal_accel
 var deccel = normal_deccel
 
