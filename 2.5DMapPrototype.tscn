@@ -38,11 +38,11 @@ shape = SubResource( 3 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( -1, 5.01436e-08, -7.16125e-08, 0, 0.819152, 0.573577, 8.74228e-08, 0.573577, -0.819152, 0, 4.576, -6.038 )
+transform = Transform( -1, 5.01437e-08, -7.16125e-08, 0, 0.819152, 0.573577, 8.74228e-08, 0.573577, -0.819152, 0, 4.576, -6.038 )
 current = true
 fov = 80.0
 script = ExtResource( 2 )
-cameraManualOffset = Vector3( 0, -2, -1 )
+cameraManualOffset = Vector3( 0, -1.5, -1 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( -0.792941, -0.0963699, 0.601629, 0.410442, 0.64528, 0.644322, -0.450312, 0.757843, -0.472115, 1.96717, 4.24363, -5.64458 )
