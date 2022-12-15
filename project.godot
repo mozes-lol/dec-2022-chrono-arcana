@@ -14,6 +14,10 @@ config/name="December 2022 - Chrono Arcana"
 run/main_scene="res://player-prototype/leveldemo.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+GlobalSettings="*res://GlobalSettings.tscn"
+
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
