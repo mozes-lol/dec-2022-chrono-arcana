@@ -424,7 +424,7 @@ states/upright/node = SubResource( 23 )
 states/upright/position = Vector2( 604, 35 )
 transitions = [ "down", "downright", SubResource( 24 ), "downright", "right", SubResource( 25 ), "right", "upright", SubResource( 26 ), "upright", "up", SubResource( 27 ), "up", "upright", SubResource( 28 ), "upright", "right", SubResource( 29 ), "right", "downright", SubResource( 30 ), "downright", "down", SubResource( 31 ), "down", "downleft", SubResource( 32 ), "downleft", "down", SubResource( 33 ), "downleft", "left", SubResource( 34 ), "left", "downleft", SubResource( 35 ), "left", "upleft", SubResource( 36 ), "upleft", "left", SubResource( 37 ), "upleft", "up", SubResource( 38 ), "up", "upleft", SubResource( 39 ), "look_around", "down", SubResource( 40 ), "down", "look_around", SubResource( 41 ) ]
 start_node = "down"
-graph_offset = Vector2( 0, 65.908 )
+graph_offset = Vector2( -193.748, 39.764 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=43]
 

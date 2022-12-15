@@ -24,7 +24,7 @@ func _ready():
 	# This is the final offset that will be used
 	cameraOffsetPositionToPlayer = Vector3(offsetX, offsetY, offsetZ) + cameraManualOffset
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	Engine.set_target_fps(Engine.get_iterations_per_second()) # idk if this will solve smoothing jitter... UPDATE: It did lol
 	# The position of the player will be checked every frame
 	playerTargetPositionPerFrame = get_node("/root/Map_Prototype/25DPlayerTest").translation
