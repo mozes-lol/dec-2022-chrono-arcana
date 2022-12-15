@@ -36,6 +36,7 @@ shape = SubResource( 3 )
 
 [node name="25DPlayerTest" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+take_damage = false
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( -1, 5.01437e-08, -7.16125e-08, 0, 0.819152, 0.573577, 8.74228e-08, 0.573577, -0.819152, 0, 4.576, -6.038 )

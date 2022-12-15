@@ -30,7 +30,7 @@ export var stamina_consump = 0
 
 var can_move = true
 
-#onready var anim = $AnimatedSprite
+onready var anim = $AnimatedSprite
 var normal_animspeed = 1.8
 var sneaking_animspeed = 1.2
 
@@ -47,10 +47,10 @@ func _ready():
 	if current_level != null and current_level.get_node_or_null("spawnpos") != null:
 		pass
 #		position = current_level.get_node("spawnpos").position
-	
-##	$AnimatedSprite.speed_scale = normal_animspeed
-	
-##	state_machine = $AnimationTree.get("parameters/playback")
+
+#	$AnimatedSprite.speed_scale = normal_animspeed
+
+	state_machine = $AnimationTree.get("parameters/playback")
 
 func get_movement():
 #	velocity = Vector2.ZERO
@@ -78,7 +78,7 @@ func _input(_event):
 
 
 func _process(_delta):
-##	$flashlightcont.look_at(get_global_mouse_position())
+#	$flashlightcont.look_at(get_global_mouse_position())
 	
 	translation.y = positionY
 	
@@ -99,7 +99,7 @@ func _process(_delta):
 	if sliding:
 		while_sliding()
 	
-#	sprite_anim()
+	sprite_anim()
 	
 #	$HealthBar.value = health
 #	$StaminaBar.value = stamina
@@ -151,34 +151,34 @@ func _on_HealthRegen_timeout():
 		$HealthRegen.stop()
 
 
-#func sprite_anim():
-#	if can_move:
-#		if velocity.length() > 0:
-#			play_anim(true)
-#		elif velocity.length() == 0:
-#			play_anim(false)
-#
-#	if velocity.x != 0 and velocity.y == 0:
-#		if velocity.x < 0:
-#			state_machine.travel("left")
-#		else:
-#			state_machine.travel("right")
-#	elif velocity.y != 0 and velocity.x == 0:
-#		if velocity.y > 0:
-#			state_machine.travel("down")
-#		else:
-#			state_machine.travel("up")
-#	elif velocity.x && velocity.y != 0:
-#		if velocity.y > 0:
-#			if velocity.x < 0:
-#				state_machine.travel("downleft")
-#			else:
-#				state_machine.travel("downright")
-#		else:
-#			if velocity.x < 0:
-#				state_machine.travel("upleft")
-#			else:
-#				state_machine.travel("upright")
+func sprite_anim():
+	if can_move:
+		if velocity.x != 0 || velocity.z != 0:
+			play_anim(true)
+		else:
+			play_anim(false)
+
+	if velocity.x != 0 and velocity.z == 0:
+		if velocity.x < 0:
+			state_machine.travel("left")
+		else:
+			state_machine.travel("right")
+	elif velocity.z != 0 and velocity.x == 0:
+		if velocity.z > 0:
+			state_machine.travel("up")
+		else:
+			state_machine.travel("down")
+	elif velocity.x && velocity.z != 0:
+		if velocity.z > 0:
+			if velocity.x < 0:
+				state_machine.travel("upleft")
+			else:
+				state_machine.travel("upright")
+		else:
+			if velocity.x < 0:
+				state_machine.travel("downleft")
+			else:
+				state_machine.travel("downright")
 
 
 func dash():
@@ -188,8 +188,8 @@ func dash():
 		stamina -= stamina_consump
 		speed = dash_speed
 		accel = speed
-#		anim.frame = 1
-#		anim.stop()
+		anim.frame = 1
+		anim.stop()
 #		$hitbox/hitboxshape.disabled = true
 		$Dash_Length.start()
 		$Dash_Cooldown.start()
@@ -221,12 +221,12 @@ func sneakorslide():
 	if dashing == false:
 		sneaking = true
 		speed = crouch_speed
-#		anim.speed_scale = sneaking_animspeed
+		anim.speed_scale = sneaking_animspeed
 		$hitbox/hitboxshape.disabled = false
 
 func while_sliding():
 	accel = speed
-#	anim.frame = 1
+	anim.frame = 1
 	if speed > normal_speed:
 		speed = move_toward(speed, normal_speed, 7)
 	elif speed <= normal_speed:
@@ -242,14 +242,14 @@ func sneakorslide_release():
 		sliding = false
 		speed = normal_speed
 		accel = normal_accel
-#		anim.speed_scale = normal_animspeed
+		anim.speed_scale = normal_animspeed
 		$hitbox/hitboxshape.disabled = false
 	
 	if sneaking:
 		sneaking = false
 		speed = normal_speed
 		accel = normal_accel
-#		anim.speed_scale = normal_animspeed
+		anim.speed_scale = normal_animspeed
 		$hitbox/hitboxshape.disabled = false
 
 
@@ -274,8 +274,8 @@ func turn_to(direction):
 
 func play_anim(status):
 	if status == true:
-#		anim.play()
-#	else:
-##		anim.frame = 0
-##		anim.stop()
+		anim.play()
+	else:
+		anim.frame = 0
+		anim.stop()
 		pass
