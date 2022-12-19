@@ -40,6 +40,9 @@ margin_top = -3371.14
 margin_right = 3597.67
 margin_bottom = 3521.86
 color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="demomap" type="Sprite" parent="."]
 scale = Vector2( 4.50625, 4.29882 )
