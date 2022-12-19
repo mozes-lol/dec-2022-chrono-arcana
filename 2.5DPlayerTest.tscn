@@ -46,7 +46,8 @@ animations = [ {
 } ]
 
 [sub_resource type="BoxShape" id=2]
-extents = Vector3( 1, 1, 0.554851 )
+margin = 0.001
+extents = Vector3( 0.561, 0.991, 0.651 )
 
 [sub_resource type="Animation" id=3]
 length = 0.001
@@ -322,24 +323,24 @@ tracks/1/keys = {
 "values": [ false, false ]
 }
 
-[sub_resource type="AnimationNodeAnimation" id=13]
+[sub_resource type="AnimationNodeAnimation" id=19]
 animation = "left"
 
-[sub_resource type="AnimationNodeAnimation" id=14]
+[sub_resource type="AnimationNodeAnimation" id=20]
 animation = "right"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=15]
+[sub_resource type="AnimationNodeStateMachineTransition" id=21]
 switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=16]
 switch_mode = 2
 
-[sub_resource type="AnimationNodeStateMachine" id=17]
-states/left/node = SubResource( 13 )
+[sub_resource type="AnimationNodeStateMachine" id=22]
+states/left/node = SubResource( 19 )
 states/left/position = Vector2( 359, 101 )
-states/right/node = SubResource( 14 )
+states/right/node = SubResource( 20 )
 states/right/position = Vector2( 604, 101 )
-transitions = [ "left", "right", SubResource( 15 ), "right", "left", SubResource( 16 ) ]
+transitions = [ "left", "right", SubResource( 21 ), "right", "left", SubResource( 16 ) ]
 graph_offset = Vector2( -203.748, 14.4635 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=18]
@@ -387,7 +388,7 @@ anims/upleft = SubResource( 11 )
 anims/upright = SubResource( 12 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 17 )
+tree_root = SubResource( 22 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource( 18 )

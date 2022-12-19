@@ -1,12 +1,8 @@
 extends Node
 
-var Scene
-
-# All scenes involved in the main game should be included here.
-# Scene = get_tree().get_node("res://2.5DMapPrototype.tscn")
-
 func _ready() -> void:
-	print_debug("")
+	print_debug("Scene Manager Active")
 
 func ChangeScene(sceneTarget):
-	get_tree().change_scene(sceneTarget) 
+	get_tree().change_scene(sceneTarget)
+	print_debug("Changing Scene")

@@ -17,6 +17,7 @@ config/icon="res://icon.png"
 [autoload]
 
 GlobalSettings="*res://GlobalSettings.tscn"
+SceneManager="*res://SceneManager.tscn"
 
 [gui]
 
