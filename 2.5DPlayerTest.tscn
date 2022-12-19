@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=2]
+[gd_scene load_steps=60 format=2]
 
 [ext_resource path="res://player-prototype/prototype-assets/Cecile_PlayerA/Cecil-Front1.png" type="Texture" id=1]
 [ext_resource path="res://2.5DPlayerTest.gd" type="Script" id=2]
@@ -16,6 +16,8 @@
 [ext_resource path="res://player-prototype/prototype-assets/Cecile_PlayerA/Cecil-FQ-1-3.png" type="Texture" id=14]
 [ext_resource path="res://player-prototype/prototype-assets/Cecile_PlayerA/Cecil-FQ-4.png" type="Texture" id=15]
 [ext_resource path="res://player-prototype/prototype-assets/Cecile_PlayerA/Cecil-BQ-1-3.png" type="Texture" id=16]
+[ext_resource path="res://AnimationTree.gd" type="Script" id=17]
+[ext_resource path="res://AnimatedSprite3D.gd" type="Script" id=18]
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -51,7 +53,7 @@ extents = Vector3( 1, 1, 0.554851 )
 [sub_resource type="Animation" id=53]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/path = NodePath("AnimatedSprite3D:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -62,34 +64,46 @@ tracks/0/keys = {
 "update": 0,
 "values": [ "down" ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite3D:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
 
 [sub_resource type="Animation" id=42]
 resource_name = "down"
 length = 0.1
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/path = NodePath("AnimatedSprite3D:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ "down", "down" ]
+"values": [ "down" ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("AnimatedSprite:flip_h")
+tracks/1/path = NodePath("AnimatedSprite3D:flip_h")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ false, false ]
+"values": [ false ]
 }
 
 [sub_resource type="Animation" id=43]
@@ -97,28 +111,28 @@ resource_name = "downleft"
 length = 0.1
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/path = NodePath("AnimatedSprite3D:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ "downright", "downright" ]
+"values": [ "downright" ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("AnimatedSprite:flip_h")
+tracks/1/path = NodePath("AnimatedSprite3D:flip_h")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ true, true ]
+"values": [ false ]
 }
 
 [sub_resource type="Animation" id=44]
@@ -126,28 +140,28 @@ resource_name = "downright"
 length = 0.1
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/path = NodePath("AnimatedSprite3D:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ "downright", "downright" ]
+"values": [ "downright" ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("AnimatedSprite:flip_h")
+tracks/1/path = NodePath("AnimatedSprite3D:flip_h")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ false, false ]
+"values": [ true ]
 }
 
 [sub_resource type="Animation" id=45]
@@ -155,34 +169,34 @@ resource_name = "left"
 length = 0.1
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/path = NodePath("AnimatedSprite3D:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ "right", "right" ]
+"values": [ "right" ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("AnimatedSprite:flip_h")
+tracks/1/path = NodePath("AnimatedSprite3D:flip_h")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ true, true ]
+"values": [ false ]
 }
 
 [sub_resource type="Animation" id=46]
 length = 6.0
 tracks/0/type = "value"
-tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/path = NodePath("AnimatedSprite3D:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -194,7 +208,7 @@ tracks/0/keys = {
 "values": [ "down", "down", "downright", "right", "right", "upright", "up", "up", "upright", "right", "right", "downright", "down", "down" ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("AnimatedSprite:flip_h")
+tracks/1/path = NodePath("AnimatedSprite3D:flip_h")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -211,28 +225,28 @@ resource_name = "right"
 length = 0.1
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/path = NodePath("AnimatedSprite3D:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ "right", "right" ]
+"values": [ "right" ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("AnimatedSprite:flip_h")
+tracks/1/path = NodePath("AnimatedSprite3D:flip_h")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ false, false ]
+"values": [ true ]
 }
 
 [sub_resource type="Animation" id=48]
@@ -240,28 +254,28 @@ resource_name = "up"
 length = 0.1
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/path = NodePath("AnimatedSprite3D:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ "up", "up" ]
+"values": [ "up" ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("AnimatedSprite:flip_h")
+tracks/1/path = NodePath("AnimatedSprite3D:flip_h")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ false, false ]
+"values": [ false ]
 }
 
 [sub_resource type="Animation" id=49]
@@ -269,28 +283,28 @@ resource_name = "upleft"
 length = 0.1
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/path = NodePath("AnimatedSprite3D:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ "upright", "upright" ]
+"values": [ "upright" ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("AnimatedSprite:flip_h")
+tracks/1/path = NodePath("AnimatedSprite3D:flip_h")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ true, true ]
+"values": [ false ]
 }
 
 [sub_resource type="Animation" id=50]
@@ -298,28 +312,28 @@ resource_name = "upright"
 length = 0.1
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/path = NodePath("AnimatedSprite3D:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ "upright", "upright" ]
+"values": [ "upright" ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("AnimatedSprite:flip_h")
+tracks/1/path = NodePath("AnimatedSprite3D:flip_h")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ false, false ]
+"values": [ true ]
 }
 
 [sub_resource type="AnimationNodeAnimation" id=15]
@@ -425,7 +439,7 @@ states/upright/node = SubResource( 23 )
 states/upright/position = Vector2( 604, 35 )
 transitions = [ "down", "downright", SubResource( 24 ), "downright", "right", SubResource( 25 ), "right", "upright", SubResource( 26 ), "upright", "up", SubResource( 27 ), "up", "upright", SubResource( 28 ), "upright", "right", SubResource( 29 ), "right", "downright", SubResource( 30 ), "downright", "down", SubResource( 31 ), "down", "downleft", SubResource( 32 ), "downleft", "down", SubResource( 33 ), "downleft", "left", SubResource( 34 ), "left", "downleft", SubResource( 35 ), "left", "upleft", SubResource( 36 ), "upleft", "left", SubResource( 37 ), "upleft", "up", SubResource( 38 ), "up", "upleft", SubResource( 39 ), "look_around", "down", SubResource( 40 ), "down", "look_around", SubResource( 41 ) ]
 start_node = "down"
-graph_offset = Vector2( -193.748, 27.4635 )
+graph_offset = Vector2( -193.748, 24.1955 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=52]
 
@@ -433,31 +447,18 @@ graph_offset = Vector2( -193.748, 27.4635 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.999536, 0 )
 script = ExtResource( 2 )
 
-[node name="AnimatedSprite" type="AnimatedSprite3D" parent="."]
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 transform = Transform( 4.384, 0, 0, 0, 3.59116, -0.573577, 0, 2.51456, 0.819152, 0, -0.154, 0 )
 use_in_baked_light = true
+flip_h = true
 alpha_cut = 2
 frames = SubResource( 2 )
-animation = "down"
-
-[node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform( 4.38375, 0, 0, 0, 3.59096, -0.573576, 0, 2.51441, 0.819152, 0, -0.154142, 0 )
-visible = false
-use_in_baked_light = true
-alpha_cut = 2
-texture = ExtResource( 1 )
+animation = "right"
+script = ExtResource( 18 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 3.38374, 0, 0, 0, 4.75634, 0, 0, 0, 3.2718, 0, 0, 0 )
 shape = SubResource( 1 )
-
-[node name="Dash_Length" type="Timer" parent="."]
-wait_time = 0.05
-one_shot = true
-
-[node name="Dash_Cooldown" type="Timer" parent="."]
-wait_time = 0.001
-one_shot = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 53 )
@@ -476,6 +477,4 @@ tree_root = SubResource( 51 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource( 52 )
-
-[connection signal="timeout" from="Dash_Length" to="." method="_on_Dash_Length_timeout"]
-[connection signal="timeout" from="Dash_Cooldown" to="." method="_on_Dash_Cooldown_timeout"]
+script = ExtResource( 17 )
