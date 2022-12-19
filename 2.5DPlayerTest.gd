@@ -158,27 +158,28 @@ func sprite_anim():
 		else:
 			play_anim(false)
 
-	if velocity.x != 0 and velocity.z == 0:
+	if velocity.x != 0 or velocity.z != 0:
 		if velocity.x < 0:
-			state_machine.travel("left")
+			$AnimatedSprite.flip_h = true
 		else:
-			state_machine.travel("right")
-	elif velocity.z != 0 and velocity.x == 0:
-		if velocity.z > 0:
-			state_machine.travel("up")
-		else:
-			state_machine.travel("down")
-	elif velocity.x && velocity.z != 0:
-		if velocity.z > 0:
-			if velocity.x < 0:
-				state_machine.travel("upleft")
-			else:
-				state_machine.travel("upright")
-		else:
-			if velocity.x < 0:
-				state_machine.travel("downleft")
-			else:
-				state_machine.travel("downright")
+			$AnimatedSprite.flip_h = false
+# We only need the left and right animations.
+#	elif velocity.z != 0 and velocity.x == 0:
+#		if velocity.z > 0:
+#			state_machine.travel("up")
+#		else:
+#			state_machine.travel("down")
+#	elif velocity.x && velocity.z != 0:
+#		if velocity.z > 0:
+#			if velocity.x < 0:
+#				state_machine.travel("upleft")
+#			else:
+#				state_machine.travel("upright")
+#		else:
+#			if velocity.x < 0:
+#				state_machine.travel("downleft")
+#			else:
+#				state_machine.travel("downright")
 
 
 func dash():
