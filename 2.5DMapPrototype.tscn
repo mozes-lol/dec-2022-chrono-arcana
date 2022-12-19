@@ -23,7 +23,7 @@ material/0 = SubResource( 5 )
 [node name="StaticBody" type="StaticBody" parent="."]
 
 [node name="Wall" type="MeshInstance" parent="StaticBody"]
-transform = Transform( 50, 0, 0, 0, -4.37114e-08, 10, 0, -1, -4.37114e-07, -0.119751, 9.97006, 10 )
+transform = Transform( 50, 0, 0, 0, -4.37114e-08, 10, 0, -1, -4.37114e-07, 0, 9.97, 10 )
 mesh = SubResource( 4 )
 material/0 = SubResource( 5 )
 
