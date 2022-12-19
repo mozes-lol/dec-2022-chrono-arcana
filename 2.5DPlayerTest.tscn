@@ -323,27 +323,27 @@ tracks/1/keys = {
 "values": [ false, false ]
 }
 
-[sub_resource type="AnimationNodeAnimation" id=19]
+[sub_resource type="AnimationNodeAnimation" id=17]
 animation = "left"
 
-[sub_resource type="AnimationNodeAnimation" id=20]
+[sub_resource type="AnimationNodeAnimation" id=18]
 animation = "right"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=21]
+[sub_resource type="AnimationNodeStateMachineTransition" id=19]
 switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=16]
 switch_mode = 2
 
-[sub_resource type="AnimationNodeStateMachine" id=22]
-states/left/node = SubResource( 19 )
+[sub_resource type="AnimationNodeStateMachine" id=20]
+states/left/node = SubResource( 17 )
 states/left/position = Vector2( 359, 101 )
-states/right/node = SubResource( 20 )
+states/right/node = SubResource( 18 )
 states/right/position = Vector2( 604, 101 )
-transitions = [ "left", "right", SubResource( 21 ), "right", "left", SubResource( 16 ) ]
+transitions = [ "left", "right", SubResource( 19 ), "right", "left", SubResource( 16 ) ]
 graph_offset = Vector2( -203.748, 14.4635 )
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=18]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=21]
 
 [node name="25DPlayerTest" type="KinematicBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.999536, 0 )
@@ -387,10 +387,10 @@ anims/upleft = SubResource( 11 )
 anims/upright = SubResource( 12 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 22 )
+tree_root = SubResource( 20 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
-parameters/playback = SubResource( 18 )
+parameters/playback = SubResource( 21 )
 
 [connection signal="timeout" from="Dash_Length" to="." method="_on_Dash_Length_timeout"]
 [connection signal="timeout" from="Dash_Cooldown" to="." method="_on_Dash_Cooldown_timeout"]

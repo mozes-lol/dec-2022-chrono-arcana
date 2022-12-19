@@ -1,6 +1,17 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://SceneManager.gd" type="Script" id=1]
+[sub_resource type="GDScript" id=1]
+script/source = "extends Node
+
+# All scenes involved in the main game should be included here.
+# Scene = get_tree().get_node(\"res://2.5DMapPrototype.tscn\")
+
+func _ready() -> void:
+	print_debug(\"Scene Manager Active\")
+
+func ChangeScene(sceneTarget):
+	get_tree().change_scene(sceneTarget) 
+"
 
 [node name="SceneManager" type="Node"]
-script = ExtResource( 1 )
+script = SubResource( 1 )
