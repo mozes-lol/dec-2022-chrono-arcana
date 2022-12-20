@@ -75,7 +75,7 @@ func getMovement():
 		input_velocity.z -= 1
 	if move_keys[0]:
 		input_velocity.z += 1
-
+	
 	input_velocity = input_velocity.normalized() * speed
 
 func delay(length, nextFunc):
