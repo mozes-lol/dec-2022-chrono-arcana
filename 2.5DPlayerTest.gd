@@ -44,14 +44,10 @@ func _input(_event):
 	
 	if Input.is_action_just_pressed("space"):
 		dash()
-	if Input.is_action_just_pressed("shift"):
-		walk()
-	if Input.is_action_just_released("shift"):
-		walkRelease()
 
 
 func _process(_delta):
-	# Sticks the player on the ground
+#	Sticks the player on the ground
 	translation.y = current_map.get_node_or_null("Floor").translation.y + current_map.get_node_or_null("Floor").scale.y
 
 func _physics_process(_delta):
@@ -59,10 +55,10 @@ func _physics_process(_delta):
 		getMovement()
 		
 		if input_velocity.length() > 0:
-			velocity.x = move_toward(velocity.x, input_velocity.x, accel) #velocity.linear_interpolate(input_velocity, 0.2)
+			velocity.x = move_toward(velocity.x, input_velocity.x, accel) # velocity.linear_interpolate(input_velocity, 0.2)
 			velocity.z = move_toward(velocity.z, input_velocity.z, accel)
 		else:
-			velocity.x = move_toward(velocity.x, 0, deccel) #velocity.linear_interpolate(Vector2.ZERO, 0.2)
+			velocity.x = move_toward(velocity.x, 0, deccel) # velocity.linear_interpolate(Vector2.ZERO, 0.2)
 			velocity.z = move_toward(velocity.z, 0, deccel)
 		
 		velocity = move_and_slide(transform.basis.xform(velocity))
@@ -103,14 +99,4 @@ func dashEnd():
 	dashing = false
 	speed = normal_speed
 	accel = normal_accel
-	can_dash = true
-
-func walk():
-	walking = true
-	speed = crouch_speed
-	can_dash = false
-
-func walkRelease():
-	walking = false
-	speed = normal_speed
 	can_dash = true

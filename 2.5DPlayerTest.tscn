@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://player-prototype/prototype-assets/Cecile_PlayerA/Cecil-Front1.png" type="Texture" id=1]
 [ext_resource path="res://2.5DPlayerTest.gd" type="Script" id=2]
@@ -77,93 +77,6 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=42]
-resource_name = "down"
-length = 0.1
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("AnimatedSprite3D:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ "down" ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("AnimatedSprite3D:flip_h")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-
-[sub_resource type="Animation" id=43]
-resource_name = "downleft"
-length = 0.1
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("AnimatedSprite3D:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ "downright" ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("AnimatedSprite3D:flip_h")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-
-[sub_resource type="Animation" id=44]
-resource_name = "downright"
-length = 0.1
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("AnimatedSprite3D:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ "downright" ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("AnimatedSprite3D:flip_h")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-
 [sub_resource type="Animation" id=45]
 resource_name = "left"
 length = 0.1
@@ -191,33 +104,6 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ false ]
-}
-
-[sub_resource type="Animation" id=46]
-length = 6.0
-tracks/0/type = "value"
-tracks/0/path = NodePath("AnimatedSprite3D:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1, 1.2, 1.4, 2.4, 2.6, 2.8, 3.4, 3.6, 3.8, 4.7, 4.9, 5.1, 6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ "down", "down", "downright", "right", "right", "upright", "up", "up", "upright", "right", "right", "downright", "down", "down" ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("AnimatedSprite3D:flip_h")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 3.4, 3.6, 4.9, 5.1, 6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ false, false, true, true, false, false ]
 }
 
 [sub_resource type="Animation" id=47]
@@ -249,196 +135,23 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=48]
-resource_name = "up"
-length = 0.1
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("AnimatedSprite3D:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ "up" ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("AnimatedSprite3D:flip_h")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-
-[sub_resource type="Animation" id=49]
-resource_name = "upleft"
-length = 0.1
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("AnimatedSprite3D:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ "upright" ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("AnimatedSprite3D:flip_h")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-
-[sub_resource type="Animation" id=50]
-resource_name = "upright"
-length = 0.1
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("AnimatedSprite3D:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ "upright" ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("AnimatedSprite3D:flip_h")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-
-[sub_resource type="AnimationNodeAnimation" id=15]
-animation = "down"
-
-[sub_resource type="AnimationNodeAnimation" id=16]
-animation = "downleft"
-
-[sub_resource type="AnimationNodeAnimation" id=17]
-animation = "downright"
-
 [sub_resource type="AnimationNodeAnimation" id=18]
 animation = "left"
-
-[sub_resource type="AnimationNodeAnimation" id=19]
-animation = "look_around"
 
 [sub_resource type="AnimationNodeAnimation" id=20]
 animation = "right"
 
-[sub_resource type="AnimationNodeAnimation" id=21]
-animation = "up"
+[sub_resource type="AnimationNodeStateMachineTransition" id=54]
 
-[sub_resource type="AnimationNodeAnimation" id=22]
-animation = "upleft"
-
-[sub_resource type="AnimationNodeAnimation" id=23]
-animation = "upright"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=24]
-switch_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=25]
-switch_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=26]
-switch_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=27]
-switch_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=28]
-switch_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=29]
-switch_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=30]
-switch_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=31]
-switch_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=32]
-switch_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=33]
-switch_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=34]
-switch_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=35]
-switch_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=36]
-switch_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=37]
-switch_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=38]
-switch_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=39]
-switch_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=40]
-switch_mode = 2
-auto_advance = true
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=41]
-switch_mode = 2
+[sub_resource type="AnimationNodeStateMachineTransition" id=55]
 
 [sub_resource type="AnimationNodeStateMachine" id=51]
-states/down/node = SubResource( 15 )
-states/down/position = Vector2( 453, 181 )
-states/downleft/node = SubResource( 16 )
-states/downleft/position = Vector2( 314, 181 )
-states/downright/node = SubResource( 17 )
-states/downright/position = Vector2( 604, 181 )
 states/left/node = SubResource( 18 )
 states/left/position = Vector2( 314, 101 )
-states/look_around/node = SubResource( 19 )
-states/look_around/position = Vector2( 453, 270.384 )
 states/right/node = SubResource( 20 )
 states/right/position = Vector2( 604, 101 )
-states/up/node = SubResource( 21 )
-states/up/position = Vector2( 453, 35 )
-states/upleft/node = SubResource( 22 )
-states/upleft/position = Vector2( 314, 35 )
-states/upright/node = SubResource( 23 )
-states/upright/position = Vector2( 604, 35 )
-transitions = [ "down", "downright", SubResource( 24 ), "downright", "right", SubResource( 25 ), "right", "upright", SubResource( 26 ), "upright", "up", SubResource( 27 ), "up", "upright", SubResource( 28 ), "upright", "right", SubResource( 29 ), "right", "downright", SubResource( 30 ), "downright", "down", SubResource( 31 ), "down", "downleft", SubResource( 32 ), "downleft", "down", SubResource( 33 ), "downleft", "left", SubResource( 34 ), "left", "downleft", SubResource( 35 ), "left", "upleft", SubResource( 36 ), "upleft", "left", SubResource( 37 ), "upleft", "up", SubResource( 38 ), "up", "upleft", SubResource( 39 ), "look_around", "down", SubResource( 40 ), "down", "look_around", SubResource( 41 ) ]
-start_node = "down"
+transitions = [ "left", "right", SubResource( 54 ), "right", "left", SubResource( 55 ) ]
+start_node = "right"
 graph_offset = Vector2( -193.748, 24.1955 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=52]
@@ -462,15 +175,8 @@ shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 53 )
-anims/down = SubResource( 42 )
-anims/downleft = SubResource( 43 )
-anims/downright = SubResource( 44 )
 anims/left = SubResource( 45 )
-anims/look_around = SubResource( 46 )
 anims/right = SubResource( 47 )
-anims/up = SubResource( 48 )
-anims/upleft = SubResource( 49 )
-anims/upright = SubResource( 50 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 51 )
