@@ -14,12 +14,12 @@ func _process(_delta):
 	
 	play()
 	
-	if dashing:
-		frame = 1
-		stop()
-	
 	if walking:
 		frames.set_animation_speed("idle-walk", normal_animspeed)
 	else:
 		frame = 0
+		stop()
+	
+	if dashing:
+		frame = 1
 		stop()
