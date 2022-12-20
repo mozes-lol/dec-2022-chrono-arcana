@@ -10,12 +10,10 @@ var input_velocity = Vector3.ZERO
 
 # Set movement acceleration & decceleration rate
 export var normal_accel = 5
-export var normal_deccel = 5
 
 var accel = normal_accel
-var deccel = normal_deccel
 
-var walking = false
+var running = false
 var dashing = false
 
 export var can_dash = true
@@ -26,10 +24,10 @@ export var max_stamina = 100
 var stamina = max_stamina
 
 onready var current_map = get_node_or_null("../")
-onready var move_keys = [false, false, false, false]
+onready var move_keys = [false, false, false, false, false, false]
 
 func _input(_event):
-	move_keys = [false, false, false, false]
+	move_keys = [false, false, false, false, false, false]
 	
 	if can_move:
 		if Input.is_action_pressed("move_up"):
@@ -40,32 +38,29 @@ func _input(_event):
 			move_keys[2] = true
 		if Input.is_action_pressed("move_right"):
 			move_keys[3] = true
-	
-	if Input.is_action_just_pressed("space"):
-		dash()
+		
+		if Input.is_action_just_pressed("space"):
+			move_keys[4] = true
+		if Input.is_action_just_pressed("shift"):
+			move_keys[5] = true
+			dash()
 
 
 func _process(_delta):
 #	Sticks the player on the ground
-	translation.y = current_map.get_node_or_null("Floor").translation.y + current_map.get_node_or_null("Floor").scale.y
+#	translation.y = current_map.get_node_or_null("Floor").translation.y + current_map.get_node_or_null("Floor").scale.y
+	
+	move_keys[4] = false
+	pass
 
 func _physics_process(_delta):
 	getMovement()
-	
-	if input_velocity.length() > 0:
-		velocity.x = move_toward(velocity.x, input_velocity.x, accel) # velocity.linear_interpolate(input_velocity, 0.2)
-		velocity.z = move_toward(velocity.z, input_velocity.z, accel)
-	else:
-		velocity.x = move_toward(velocity.x, 0, deccel) # velocity.linear_interpolate(Vector2.ZERO, 0.2)
-		velocity.z = move_toward(velocity.z, 0, deccel)
-	
-	velocity = move_and_slide(transform.basis.xform(velocity))
 
 func getMovement():
 	if move_keys.has(true):
-		walking = true
+		running = true
 	else:
-		walking = false
+		running = false
 	
 	input_velocity = Vector3.ZERO
 	
@@ -79,6 +74,18 @@ func getMovement():
 		input_velocity.z += 1
 	
 	input_velocity = input_velocity.normalized() * speed
+	
+	if move_keys[4]:
+		input_velocity.y = 2000
+	else:
+		input_velocity.y = -90
+	
+	
+	velocity.x = move_toward(velocity.x, input_velocity.x, accel) # velocity.linear_interpolate(input_velocity, 0.2)
+	velocity.y = lerp(velocity.y, input_velocity.y, 0.0098)
+	velocity.z = move_toward(velocity.z, input_velocity.z, accel)
+	
+	velocity = move_and_slide(transform.basis.xform(velocity))
 
 func delay(length, nextFunc):
 	var timer = Timer.new()
@@ -89,7 +96,7 @@ func delay(length, nextFunc):
 	timer.start()
 
 func dash():
-	if can_dash && stamina >= stamina_consump && velocity != Vector3.ZERO:
+	if can_dash && stamina >= stamina_consump && move_keys.has(true):
 		dashing = true
 		can_dash = false
 		stamina -= stamina_consump

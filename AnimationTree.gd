@@ -13,3 +13,9 @@ func _process(_delta):
 	if move_keys[3] && !move_keys[2]:
 		state_machine.travel("face-right")
 		return
+#	
+	if move_keys[0] || move_keys[1]:
+		state_machine.travel("run")
+		return
+	
+	state_machine.travel("idle")
