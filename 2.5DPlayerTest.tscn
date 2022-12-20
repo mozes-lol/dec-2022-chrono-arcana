@@ -5,13 +5,13 @@
 [ext_resource path="res://player-prototype/prototype-assets/Cecile_PlayerA/Cecil-Side-1-3.png" type="Texture" id=10]
 [ext_resource path="res://player-prototype/prototype-assets/Cecile_PlayerA/Cecil-Side-2.png" type="Texture" id=13]
 [ext_resource path="res://AnimationTree.gd" type="Script" id=17]
-[ext_resource path="res://AnimatedSprite.gd" type="Script" id=18]
+[ext_resource path="res://AnimatedSprite3D.gd" type="Script" id=18]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 10 ), ExtResource( 13 ), ExtResource( 10 ), ExtResource( 3 ) ],
 "loop": true,
-"name": "right",
+"name": "idle-walk",
 "speed": 10.0
 } ]
 
@@ -33,9 +33,21 @@ tracks/0/keys = {
 "update": 0,
 "values": [ "down" ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite3D:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
 
 [sub_resource type="Animation" id=9]
-resource_name = "left"
+resource_name = "face-left"
 length = 0.1
 loop = true
 tracks/0/type = "value"
@@ -48,7 +60,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ "right" ]
+"values": [ "idle-walk" ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("AnimatedSprite3D:flip_h")
@@ -64,7 +76,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=7]
-resource_name = "right"
+resource_name = "face-right"
 length = 0.1
 loop = true
 tracks/0/type = "value"
@@ -77,7 +89,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ "right" ]
+"values": [ "idle-walk" ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("AnimatedSprite3D:flip_h")
@@ -93,22 +105,22 @@ tracks/1/keys = {
 }
 
 [sub_resource type="AnimationNodeAnimation" id=17]
-animation = "left"
+animation = "face-left"
 
 [sub_resource type="AnimationNodeAnimation" id=18]
-animation = "right"
+animation = "face-right"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=19]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=16]
 
 [sub_resource type="AnimationNodeStateMachine" id=20]
-states/left/node = SubResource( 17 )
-states/left/position = Vector2( 359, 101 )
-states/right/node = SubResource( 18 )
-states/right/position = Vector2( 604, 101 )
-transitions = [ "left", "right", SubResource( 19 ), "right", "left", SubResource( 16 ) ]
-start_node = "right"
+states/face-left/node = SubResource( 17 )
+states/face-left/position = Vector2( 359, 101 )
+states/face-right/node = SubResource( 18 )
+states/face-right/position = Vector2( 604, 101 )
+transitions = [ "face-left", "face-right", SubResource( 19 ), "face-right", "face-left", SubResource( 16 ) ]
+start_node = "face-right"
 graph_offset = Vector2( -203.748, -14.0485 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=21]
@@ -123,7 +135,7 @@ use_in_baked_light = true
 flip_h = true
 alpha_cut = 2
 frames = SubResource( 1 )
-animation = "down"
+animation = "idle-walk"
 script = ExtResource( 18 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
@@ -131,8 +143,8 @@ shape = SubResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 3 )
-anims/left = SubResource( 9 )
-anims/right = SubResource( 7 )
+anims/face-left = SubResource( 9 )
+anims/face-right = SubResource( 7 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 20 )
