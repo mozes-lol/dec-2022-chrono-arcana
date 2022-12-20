@@ -44,10 +44,6 @@ func _input(_event):
 	
 	if Input.is_action_just_pressed("space"):
 		dash()
-	if Input.is_action_just_pressed("shift"):
-		walk()
-	if Input.is_action_just_released("shift"):
-		walkRelease()
 
 
 func _process(_delta):
@@ -103,14 +99,4 @@ func dashEnd():
 	dashing = false
 	speed = normal_speed
 	accel = normal_accel
-	can_dash = true
-
-func walk():
-	walking = true
-	speed = crouch_speed
-	can_dash = false
-
-func walkRelease():
-	walking = false
-	speed = normal_speed
 	can_dash = true
