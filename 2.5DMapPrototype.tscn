@@ -11,6 +11,7 @@ albedo_texture = ExtResource( 3 )
 uv1_scale = Vector3( 5, 1, 1 )
 
 [sub_resource type="BoxShape" id=3]
+extents = Vector3( 50.1389, 10.0602, 1 )
 
 [node name="Map_Prototype" type="Spatial"]
 
@@ -22,21 +23,24 @@ material/0 = SubResource( 2 )
 [node name="StaticBody" type="StaticBody" parent="."]
 
 [node name="Wall" type="MeshInstance" parent="StaticBody"]
-transform = Transform( 50, 0, 0, 0, -4.37114e-08, 10, 0, -1, -4.37114e-07, 0, 10, 10 )
+transform = Transform( 50, 0, 0, 0, -4.37114e-08, 10, 0, -1, -4.37114e-07, 0, 9.97, 10 )
 mesh = SubResource( 1 )
 material/0 = SubResource( 2 )
 
 [node name="Collision Back" type="CollisionShape" parent="StaticBody"]
-transform = Transform( 248.774, 0, 0, 0, -4.37114e-08, 50, 0, -1, -2.18557e-06, 0, 10, 11.9087 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 10.9812 )
 shape = SubResource( 3 )
 
-[node name="Collision Front" type="CollisionShape" parent="StaticBody"]
-transform = Transform( 248.774, 0, 0, 0, -4.37114e-08, 50, 0, -1, -2.18557e-06, 0, 10, -12.2099 )
+[node name="Collision Back2" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, -11.0864 )
+shape = SubResource( 3 )
+
+[node name="Collision Back3" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -1, 0 )
 shape = SubResource( 3 )
 
 [node name="25DPlayerTest" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
-take_damage = false
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( -1, 5.01437e-08, -7.16125e-08, 0, 0.819152, 0.573577, 8.74228e-08, 0.573577, -0.819152, 0, 4.576, -6.038 )
