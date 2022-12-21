@@ -1,7 +1,7 @@
 [gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://player-prototype/prototype-assets/Fu_Run.png" type="Texture" id=1]
-[ext_resource path="res://2.5DPlayerTest.gd" type="Script" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=2]
 [ext_resource path="res://player-prototype/prototype-assets/Fu_Idle.png" type="Texture" id=3]
 [ext_resource path="res://AnimationTree.gd" type="Script" id=17]
 [ext_resource path="res://AnimatedSprite3D.gd" type="Script" id=18]
@@ -255,20 +255,24 @@ graph_offset = Vector2( -203.748, 2.43893 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=39]
 
-[node name="25DPlayerTest" type="KinematicBody"]
+[node name="Enemy" type="KinematicBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.999536, 0 )
-script = ExtResource( 2 )
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 transform = Transform( 0.8, 0, 0, 0, 0.655321, -0.458862, 0, 0.458862, 0.655321, 0, -0.193388, 0 )
+visible = false
 use_in_baked_light = true
 flip_h = true
 alpha_cut = 2
 frames = SubResource( 17 )
 animation = "idle"
-frame = 3
+frame = 9
 playing = true
 script = ExtResource( 18 )
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform( 1.88464, 0, 0, 0, 1.91961, -0.895129, 0, 0.422618, 0.906308, 0, -0.287699, 0 )
+texture = ExtResource( 2 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.296922, 0 )
