@@ -255,7 +255,7 @@ graph_offset = Vector2( -140.748, 39.4389 )
 [sub_resource type="AnimationNodeStateMachinePlayback" id=62]
 
 [sub_resource type="SphereShape" id=63]
-radius = 4.8
+radius = 3.0
 
 [node name="EnemyPrototype" type="KinematicBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.999536, 0 )
@@ -270,7 +270,7 @@ use_in_baked_light = true
 alpha_cut = 2
 frames = SubResource( 55 )
 animation = "idle"
-frame = 10
+frame = 8
 playing = true
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
@@ -297,12 +297,12 @@ parameters/playback = SubResource( 62 )
 
 [node name="Timer" type="Timer" parent="."]
 
-[node name="Area" type="Area" parent="."]
+[node name="AttackRange" type="Area" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.384016, 0 )
 collision_layer = 4
 
-[node name="CollisionShape" type="CollisionShape" parent="Area"]
+[node name="CollisionShape" type="CollisionShape" parent="AttackRange"]
 shape = SubResource( 63 )
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
-[connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
+[connection signal="body_entered" from="AttackRange" to="." method="_on_Area_body_entered"]
