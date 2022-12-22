@@ -59,9 +59,6 @@ shape = SubResource( 3 )
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -15, 4, 15 )
 shape = SubResource( 3 )
 
-[node name="25DPlayerTest" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
-
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( -1, 5.01437e-08, -7.16125e-08, 0, 0.819152, 0.573577, 8.74228e-08, 0.573577, -0.819152, 0, 4.576, -6.038 )
 current = true
@@ -86,3 +83,6 @@ material/0 = SubResource( 2 )
 
 [node name="Enemy" parent="Navigation" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.26368, 0.999536, 0 )
+
+[node name="25DPlayerTest" parent="Navigation" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
