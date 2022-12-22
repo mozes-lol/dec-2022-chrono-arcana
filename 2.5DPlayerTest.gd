@@ -89,12 +89,14 @@ func delay(length, nextFunc):
 
 func dash():
 	can_dash = false
+	$CollisionShape.disabled = true
 	stamina -= stamina_consump
 	speed = dash_speed
 	accel = speed
 	delay(0.05, "dashEnd")
 
 func dashEnd():
+	$CollisionShape.disabled = false
 	speed = normal_speed
 	accel = normal_accel
 	can_dash = true
