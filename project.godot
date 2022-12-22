@@ -8,6 +8,112 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Node",
+"class": "CustomEventConverter",
+"language": "GDScript",
+"path": "res://Plugins/dialogic-main/addons/dialogic/Events/Converter/custom_event_converter.gd"
+}, {
+"base": "Reference",
+"class": "DNextIndicator",
+"language": "GDScript",
+"path": "res://Plugins/dialogic-main/addons/dialogic/Events/Text/node_next_indicator.gd"
+}, {
+"base": "Reference",
+"class": "DialogicAnimation",
+"language": "GDScript",
+"path": "res://Plugins/dialogic-main/addons/dialogic/Events/Character/class_dialogic_animation.gd"
+}, {
+"base": "Reference",
+"class": "DialogicGlossary",
+"language": "GDScript",
+"path": "res://Plugins/dialogic-main/addons/dialogic/Events/Glossary/glossary_resource.gd"
+}, {
+"base": "Reference",
+"class": "DialogicNode_BackgroundHolder",
+"language": "GDScript",
+"path": "res://Plugins/dialogic-main/addons/dialogic/Events/Background/node_background_holder.gd"
+}, {
+"base": "Reference",
+"class": "DialogicNode_ButtonSound",
+"language": "GDScript",
+"path": "res://Plugins/dialogic-main/addons/dialogic/Events/Choice/node_button_sound.gd"
+}, {
+"base": "Reference",
+"class": "DialogicNode_ChoiceButton",
+"language": "GDScript",
+"path": "res://Plugins/dialogic-main/addons/dialogic/Events/Choice/node_choice_button.gd"
+}, {
+"base": "RichTextLabel",
+"class": "DialogicNode_DialogText",
+"language": "GDScript",
+"path": "res://Plugins/dialogic-main/addons/dialogic/Events/Text/node_dialog_text.gd"
+}, {
+"base": "Reference",
+"class": "DialogicNode_MusicPlayer",
+"language": "GDScript",
+"path": "res://Plugins/dialogic-main/addons/dialogic/Events/Audio/node_music_player.gd"
+}, {
+"base": "Label",
+"class": "DialogicNode_NameLabel",
+"language": "GDScript",
+"path": "res://Plugins/dialogic-main/addons/dialogic/Events/Text/node_name_label.gd"
+}, {
+"base": "Reference",
+"class": "DialogicNode_PortraitHolder",
+"language": "GDScript",
+"path": "res://Plugins/dialogic-main/addons/dialogic/Events/Character/node_portrait_holder.gd"
+}, {
+"base": "Reference",
+"class": "DialogicNode_PortraitPosition",
+"language": "GDScript",
+"path": "res://Plugins/dialogic-main/addons/dialogic/Events/Character/node_portrait_position.gd"
+}, {
+"base": "Reference",
+"class": "DialogicNode_SoundPlayer",
+"language": "GDScript",
+"path": "res://Plugins/dialogic-main/addons/dialogic/Events/Audio/node_sound_player.gd"
+}, {
+"base": "Reference",
+"class": "DialogicNode_Style",
+"language": "GDScript",
+"path": "res://Plugins/dialogic-main/addons/dialogic/Events/Style/node_style.gd"
+}, {
+"base": "Reference",
+"class": "DialogicNode_TextInput",
+"language": "GDScript",
+"path": "res://Plugins/dialogic-main/addons/dialogic/Events/TextInput/node_text_input.gd"
+}, {
+"base": "Reference",
+"class": "DialogicNode_VoicePlayer",
+"language": "GDScript",
+"path": "res://Plugins/dialogic-main/addons/dialogic/Events/Voice/node_voice_player.gd"
+}, {
+"base": "Node",
+"class": "DialogicSubsystem",
+"language": "GDScript",
+"path": "res://Plugins/dialogic-main/addons/dialogic/Other/Dialogic_Subsystem.gd"
+} ]
+_global_script_class_icons={
+"CustomEventConverter": "",
+"DNextIndicator": "",
+"DialogicAnimation": "",
+"DialogicGlossary": "",
+"DialogicNode_BackgroundHolder": "",
+"DialogicNode_ButtonSound": "",
+"DialogicNode_ChoiceButton": "",
+"DialogicNode_DialogText": "",
+"DialogicNode_MusicPlayer": "",
+"DialogicNode_NameLabel": "",
+"DialogicNode_PortraitHolder": "",
+"DialogicNode_PortraitPosition": "",
+"DialogicNode_SoundPlayer": "",
+"DialogicNode_Style": "",
+"DialogicNode_TextInput": "",
+"DialogicNode_VoicePlayer": "",
+"DialogicSubsystem": ""
+}
+
 [application]
 
 config/name="December 2022 - Chrono Arcana"
@@ -33,48 +139,48 @@ common/drop_mouse_on_gui_input_disabled=true
 
 move_keys={
 "deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":87,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
-, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":65,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
-, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":83,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
-, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":68,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
-, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777232,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
-, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777231,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
-, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777234,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
-, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777233,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":87,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":65,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":83,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":68,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777232,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777231,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777234,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777233,"unicode":0,"echo":false,"script":null)
  ]
 }
 move_up={
 "deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":87,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
-, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777232,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":87,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777232,"unicode":0,"echo":false,"script":null)
  ]
 }
 move_down={
 "deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":83,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
-, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777234,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":83,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777234,"unicode":0,"echo":false,"script":null)
  ]
 }
 move_left={
 "deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":65,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
-, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777231,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":65,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777231,"unicode":0,"echo":false,"script":null)
  ]
 }
 move_right={
 "deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":68,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
-, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777233,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":68,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777233,"unicode":0,"echo":false,"script":null)
  ]
 }
 space={
 "deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":32,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":32,"unicode":0,"echo":false,"script":null)
  ]
 }
 shift={
 "deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777237,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777237,"unicode":0,"echo":false,"script":null)
  ]
 }
 
