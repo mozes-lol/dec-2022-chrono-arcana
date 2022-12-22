@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/voicetest.mp3-59ae99f58b4f4108fa2cf31633c6eca9.mp3str"
+
+[deps]
+
+source_file="res://Plugins/dialogic-main/timelines/voicetest.mp3"
+dest_files=[ "res://.import/voicetest.mp3-59ae99f58b4f4108fa2cf31633c6eca9.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
