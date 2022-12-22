@@ -266,7 +266,7 @@ flip_h = true
 alpha_cut = 2
 frames = SubResource( 17 )
 animation = "idle"
-frame = 3
+frame = 11
 playing = true
 script = ExtResource( 18 )
 
