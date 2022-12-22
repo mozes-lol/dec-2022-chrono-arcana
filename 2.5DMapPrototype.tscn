@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://2.5DPlayerTest.tscn" type="PackedScene" id=1]
 [ext_resource path="res://25DCamera.gd" type="Script" id=2]
 [ext_resource path="res://Textures/PrototypeBlack.png" type="Texture" id=3]
+[ext_resource path="res://EnemyPrototype.tscn" type="PackedScene" id=4]
 
 [sub_resource type="PlaneMesh" id=1]
 
@@ -71,3 +72,6 @@ cameraManualOffset = Vector3( 0, -1.5, -1 )
 transform = Transform( -0.792941, -0.0963699, 0.601629, 0.410442, 0.64528, 0.644322, -0.450312, 0.757843, -0.472115, 1.96717, 4.24363, -5.64458 )
 light_energy = 0.25
 shadow_enabled = true
+
+[node name="Enemy" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.26368, 0.999536, 0 )
