@@ -39,8 +39,9 @@ func _input(_event):
 		if Input.is_action_pressed("move_right"):
 			move_keys[3] = true
 		
-		if Input.is_action_just_pressed("space"):
-			move_keys[4] = true
+# We don't need the jump function for the time being
+#		if Input.is_action_just_pressed("space"):
+#			move_keys[4] = true
 		if Input.is_action_just_pressed("shift"):
 			move_keys[5] = true
 
