@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://player-prototype/prototype-assets/Fu_Run.png" type="Texture" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
@@ -250,27 +250,33 @@ states/run/node = SubResource( 27 )
 states/run/position = Vector2( 471.252, 149.952 )
 transitions = [ "face-left", "idle", SubResource( 28 ), "idle", "face-left", SubResource( 29 ), "idle", "face-right", SubResource( 30 ), "face-right", "idle", SubResource( 31 ), "run", "face-left", SubResource( 32 ), "face-left", "run", SubResource( 33 ), "face-right", "run", SubResource( 34 ), "run", "face-right", SubResource( 35 ), "run", "idle", SubResource( 36 ), "idle", "run", SubResource( 37 ) ]
 start_node = "idle"
-graph_offset = Vector2( -203.748, 2.43893 )
+graph_offset = Vector2( -184.748, -22.5611 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=39]
 
+[sub_resource type="SphereShape" id=40]
+margin = 0.001
+radius = 4.3787
+
 [node name="EnemyPrototype" type="KinematicBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.999536, 0 )
+collision_layer = 4
+collision_mask = 23
 script = ExtResource( 4 )
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 transform = Transform( 0.8, 0, 0, 0, 0.655321, -0.458862, 0, 0.458862, 0.655321, 0, -0.193388, 0 )
 visible = false
 use_in_baked_light = true
-flip_h = true
 alpha_cut = 2
 frames = SubResource( 17 )
-animation = "idle"
-frame = 5
+animation = "walk"
+frame = 1
 playing = true
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform( 1.88464, 0, 0, 0, 1.78142, -0.538345, 0, 0.83069, 1.15448, 0, -0.403784, 0 )
+use_in_baked_light = true
 texture = ExtResource( 2 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
@@ -292,4 +298,12 @@ parameters/playback = SubResource( 39 )
 
 [node name="Timer" type="Timer" parent="."]
 
+[node name="Area" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.384016, 0 )
+collision_layer = 4
+
+[node name="CollisionShape" type="CollisionShape" parent="Area"]
+shape = SubResource( 40 )
+
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]

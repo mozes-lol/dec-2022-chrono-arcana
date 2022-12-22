@@ -2,6 +2,7 @@ extends KinematicBody
 
 var path = []
 var path_node = 0
+var is_attacking = false
 
 var speed = 10 # how fast the enemy moves to the player
 
@@ -12,6 +13,8 @@ onready var nav = get_parent() # gets the NavigationMeshInstance Node
 onready var player = $"/root/Map_Prototype/Navigation/25DPlayerTest"
 
 func _physics_process(delta: float) -> void:
+	if is_attacking == true:
+		return # We do a guard clause to prevent the enemy from doing anymore movement in the time being.
 	if path_node < path.size():
 		var direction = (path[path_node] - global_transform.origin)
 		if direction.length() < 1:
@@ -25,3 +28,6 @@ func move_to(target_pos):
 
 func _on_Timer_timeout() -> void:
 	move_to(player.global_transform.origin)
+
+func _on_Area_body_entered(body: Node) -> void:
+	is_attacking = true
