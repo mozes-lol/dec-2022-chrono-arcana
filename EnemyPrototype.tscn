@@ -253,7 +253,7 @@ graph_offset = Vector2( -203.748, 2.43893 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=39]
 
-[node name="Enemy" type="KinematicBody"]
+[node name="EnemyPrototype" type="KinematicBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.999536, 0 )
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
@@ -264,7 +264,6 @@ flip_h = true
 alpha_cut = 2
 frames = SubResource( 17 )
 animation = "idle"
-frame = 4
 playing = true
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
