@@ -265,8 +265,7 @@ use_in_baked_light = true
 flip_h = true
 alpha_cut = 2
 frames = SubResource( 17 )
-animation = "idle"
-frame = 3
+animation = "down"
 playing = true
 script = ExtResource( 18 )
 

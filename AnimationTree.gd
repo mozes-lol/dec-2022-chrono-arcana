@@ -14,7 +14,7 @@ func _process(_delta):
 		state_machine.travel("face-right")
 		return
 #	
-	if move_keys[0] || move_keys[1] || !get_parent().is_on_floor():
+	if move_keys[0] != move_keys[1] || !get_parent().is_on_floor():
 		state_machine.travel("run")
 		return
 	
