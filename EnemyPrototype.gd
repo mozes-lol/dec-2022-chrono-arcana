@@ -27,11 +27,12 @@ func _physics_process(delta: float) -> void:
 	if is_preparing_to_attack == true:
 		return # We do a guard clause to prevent the enemy from doing anymore movement in the time being.
 	if path_node < path.size():
-		direction = (path[path_node] - global_transform.origin)
+		direction = (path[path_node] - global_transform.origin) 
+		direction.y += .45  # This will push the enemy upward, preventing it from "semi-sinking" to the ground
 		if direction.length() < 1:
 			path_node += 1
 		else:
-			move_and_slide(direction.normalized() * speed, Vector3.UP)
+			move_and_slide(direction.normalized()  * speed, Vector3.UP)
 
 func move_to(target_pos):
 	path = nav.get_simple_path(global_transform.origin, target_pos)
