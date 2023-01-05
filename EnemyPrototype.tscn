@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://player-prototype/prototype-assets/Fu_Run.png" type="Texture" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
@@ -254,9 +254,6 @@ graph_offset = Vector2( -140.748, 39.4389 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=39]
 
-[sub_resource type="SphereShape" id=40]
-radius = 3.0
-
 [node name="EnemyPrototype" type="KinematicBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.999536, 0 )
 collision_layer = 4
@@ -298,10 +295,3 @@ parameters/playback = SubResource( 39 )
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.1
 autostart = true
-
-[node name="AttackRange" type="Area" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.384016, 0 )
-collision_layer = 4
-
-[node name="CollisionShape" type="CollisionShape" parent="AttackRange"]
-shape = SubResource( 40 )
