@@ -107,3 +107,4 @@ collision_mask = 1
 path_to_player = NodePath("../../25DPlayerTest")
 
 [node name="NavigationAgent" type="NavigationAgent" parent="Navigation/Enemy"]
+radius = 37.49

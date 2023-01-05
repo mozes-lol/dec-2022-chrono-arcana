@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://player-prototype/prototype-assets/Fu_Run.png" type="Texture" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
@@ -100,7 +100,10 @@ animations = [ {
 
 [sub_resource type="CylinderShape" id=40]
 height = 1.38217
-radius = 0.652773
+radius = 0.630972
+
+[sub_resource type="CylinderShape" id=41]
+radius = 1.64844
 
 [sub_resource type="Animation" id=19]
 length = 0.001
@@ -267,17 +270,23 @@ use_in_baked_light = true
 alpha_cut = 2
 frames = SubResource( 17 )
 animation = "idle"
-frame = 5
+frame = 10
 playing = true
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform( -8.23802e-08, -1.96558, 0, 1.70806, -7.78683e-08, -0.538343, 0.796483, -3.63106e-08, 1.15448, 0, -0.403784, 0 )
+transform = Transform( -8.23802e-08, -1.96558, 0, 1.70806, -7.78683e-08, -0.538343, 0.796483, -3.63106e-08, 1.15448, 0, -0.427723, 0 )
 use_in_baked_light = true
 texture = ExtResource( 2 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.296922, 0 )
 shape = SubResource( 40 )
+
+[node name="AttackRange" type="Area" parent="."]
+collision_layer = 4
+
+[node name="CollisionShape" type="CollisionShape" parent="AttackRange"]
+shape = SubResource( 41 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 19 )
@@ -292,6 +301,21 @@ anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource( 39 )
 
-[node name="Timer" type="Timer" parent="."]
+[node name="AttackPrepare" type="Timer" parent="."]
+one_shot = true
+
+[node name="AttackDuration" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
+
+[node name="AttackCooldown" type="Timer" parent="."]
+one_shot = true
+
+[node name="Pathfinding" type="Timer" parent="."]
 wait_time = 0.1
 autostart = true
+
+[connection signal="body_entered" from="AttackRange" to="." method="_on_AttackRange_body_entered"]
+[connection signal="timeout" from="AttackPrepare" to="." method="_on_AttackPrepare_timeout"]
+[connection signal="timeout" from="AttackDuration" to="." method="_on_AttackDuration_timeout"]
+[connection signal="timeout" from="AttackCooldown" to="." method="_on_AttackCooldown_timeout"]
