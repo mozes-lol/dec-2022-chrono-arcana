@@ -101,3 +101,7 @@ func dashEnd():
 	speed = normal_speed
 	accel = normal_accel
 	can_dash = true
+
+func _on_Hitbox_body_entered(body):
+	print_debug(body.is_attacking)
+	
