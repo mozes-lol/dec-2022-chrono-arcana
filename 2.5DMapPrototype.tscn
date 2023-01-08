@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://2.5DPlayerTest.tscn" type="PackedScene" id=1]
 [ext_resource path="res://25DCamera.gd" type="Script" id=2]
 [ext_resource path="res://Textures/PrototypeBlack.png" type="Texture" id=3]
+[ext_resource path="res://EnemyPrototype.tscn" type="PackedScene" id=4]
 
 [sub_resource type="PlaneMesh" id=1]
 
@@ -11,54 +12,59 @@ albedo_texture = ExtResource( 3 )
 uv1_scale = Vector3( 5, 1, 1 )
 
 [sub_resource type="BoxShape" id=3]
+margin = 0.001
 extents = Vector3( 50, 10, 0 )
+
+[sub_resource type="NavigationMesh" id=4]
+vertices = PoolVector3Array( 6, 0.56, 9, 6, 0.56, 3, 3, 0.56, 2, -1, 0.56, 9, -8, 0.56, 9, 3, 0.56, -1, -8, 0.56, -9, -15, 0.56, -9, -15, 0.56, 9, 3, 0.56, -1, 6, 0.56, -2, 6, 0.56, -9, -1, 0.56, -9, -22, 0.56, 9, -15, 0.56, 9, -15, 0.56, -9, -22, 0.56, -9, -1, 0.56, 9, 3, 0.56, 2, 3, 0.56, -1, -8, 0.56, 9, -43, 0.56, -9, -49, 0.56, -9, -49, 0.56, 0, -49, 0.56, 0, -49, 0.56, 9, -43, 0.56, 9, 3, 0.56, -1, -1, 0.56, -9, -8, 0.56, -9, -22, 0.56, -9, -29, 0.56, -9, -29, 0.56, 9, -22, 0.56, 9, -36, 0.56, -9, -43, 0.56, -9, -49, 0.56, 0, -49, 0.56, 0, -43, 0.56, 9, -36, 0.56, 9, -36, 0.56, -9, -49, 0.56, 0, -36, 0.56, 9, -29, 0.56, 9, -29, 0.56, -9, 8, 0.56, 2, 6, 0.56, 3, 6, 0.56, 9, 16, 0.56, 9, 6, 0.56, -9, 6, 0.56, -2, 8, 0.56, -1, 16, 0.56, -9, 49, 0.56, 0, 49, 0.56, -9, 38, 0.56, -9, 38, 0.56, 9, 49, 0.56, 0, 38, 0.56, -9, 27, 0.56, -9, 27, 0.56, 9, 8, 0.56, -1, 8, 0.56, 2, 16, 0.56, 9, 27, 0.56, 9, 27, 0.56, -9, 16, 0.56, -9, 38, 0.56, 9, 49, 0.56, 9, 49, 0.56, 0 )
+polygons = [ PoolIntArray( 1, 0, 2 ), PoolIntArray( 2, 0, 3 ), PoolIntArray( 6, 5, 7 ), PoolIntArray( 7, 5, 4 ), PoolIntArray( 7, 4, 8 ), PoolIntArray( 10, 9, 11 ), PoolIntArray( 11, 9, 12 ), PoolIntArray( 16, 15, 13 ), PoolIntArray( 13, 15, 14 ), PoolIntArray( 18, 17, 19 ), PoolIntArray( 19, 17, 20 ), PoolIntArray( 23, 22, 21 ), PoolIntArray( 26, 25, 24 ), PoolIntArray( 29, 28, 27 ), PoolIntArray( 33, 32, 30 ), PoolIntArray( 30, 32, 31 ), PoolIntArray( 36, 35, 34 ), PoolIntArray( 39, 38, 37 ), PoolIntArray( 44, 43, 40 ), PoolIntArray( 40, 43, 42 ), PoolIntArray( 40, 42, 41 ), PoolIntArray( 46, 45, 47 ), PoolIntArray( 47, 45, 48 ), PoolIntArray( 50, 49, 51 ), PoolIntArray( 51, 49, 52 ), PoolIntArray( 55, 54, 53 ), PoolIntArray( 57, 56, 58 ), PoolIntArray( 58, 56, 60 ), PoolIntArray( 58, 60, 59 ), PoolIntArray( 62, 61, 63 ), PoolIntArray( 63, 61, 66 ), PoolIntArray( 63, 66, 65 ), PoolIntArray( 63, 65, 64 ), PoolIntArray( 69, 68, 67 ) ]
+cell_size = 1.0
+cell_height = 0.39
+
+[sub_resource type="CubeMesh" id=5]
 
 [node name="Map_Prototype" type="Spatial"]
 
-[node name="Floor" type="MeshInstance" parent="."]
-transform = Transform( 50, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0 )
-mesh = SubResource( 1 )
-material/0 = SubResource( 2 )
+[node name="Level" type="StaticBody" parent="."]
+collision_layer = 16
+collision_mask = 0
 
-[node name="Floor2" type="MeshInstance" parent="."]
-transform = Transform( 50, 0, 0, 0, 1, 0, 0, 0, 10, 75, 2, 10 )
-mesh = SubResource( 1 )
-material/0 = SubResource( 2 )
-
-[node name="Floor3" type="MeshInstance" parent="."]
-transform = Transform( 50, 0, 0, 0, 1, 0, 0, 0, 10, -15, 4, 15 )
-mesh = SubResource( 1 )
-material/0 = SubResource( 2 )
-
-[node name="StaticBody" type="StaticBody" parent="."]
-
-[node name="Wall" type="MeshInstance" parent="StaticBody"]
+[node name="Wall" type="MeshInstance" parent="Level"]
 transform = Transform( 50, 0, 0, 0, -4.37114e-08, 10, 0, -1, -4.37114e-07, 0, 9.97, 10 )
 mesh = SubResource( 1 )
 material/0 = SubResource( 2 )
 
-[node name="Collision Back" type="CollisionShape" parent="StaticBody"]
+[node name="Floor2" type="MeshInstance" parent="Level"]
+transform = Transform( 50, 0, 0, 0, 1, 0, 0, 0, 10, 75, 2, 10 )
+mesh = SubResource( 1 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 2 )
+
+[node name="Floor3" type="MeshInstance" parent="Level"]
+transform = Transform( 50, 0, 0, 0, 1, 0, 0, 0, 10, -15, 4, 15 )
+mesh = SubResource( 1 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 2 )
+
+[node name="Collision Back" type="CollisionShape" parent="Level"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 10 )
 shape = SubResource( 3 )
 
-[node name="Collision Back2" type="CollisionShape" parent="StaticBody"]
+[node name="Collision Back2" type="CollisionShape" parent="Level"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, -10 )
 shape = SubResource( 3 )
 
-[node name="Collision Back3" type="CollisionShape" parent="StaticBody"]
+[node name="Collision Back3" type="CollisionShape" parent="Level"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
 shape = SubResource( 3 )
 
-[node name="Collision Back4" type="CollisionShape" parent="StaticBody"]
+[node name="Collision Back4" type="CollisionShape" parent="Level"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 75, 2, 10 )
 shape = SubResource( 3 )
 
-[node name="Collision Back5" type="CollisionShape" parent="StaticBody"]
+[node name="Collision Back5" type="CollisionShape" parent="Level"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -15, 4, 15 )
 shape = SubResource( 3 )
-
-[node name="25DPlayerTest" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( -1, 5.01437e-08, -7.16125e-08, 0, 0.819152, 0.573577, 8.74228e-08, 0.573577, -0.819152, 0, 4.576, -6.038 )
@@ -68,6 +74,37 @@ script = ExtResource( 2 )
 cameraManualOffset = Vector3( 0, -1.5, -1 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
-transform = Transform( -0.792941, -0.0963699, 0.601629, 0.410442, 0.64528, 0.644322, -0.450312, 0.757843, -0.472115, 1.96717, 4.24363, -5.64458 )
-light_energy = 0.25
+transform = Transform( -0.792941, -0.09637, 0.601628, 0.410442, 0.64528, 0.644322, -0.450312, 0.757843, -0.472115, 1.96717, 4.24363, -5.64458 )
+light_energy = 0.5
 shadow_enabled = true
+
+[node name="25DPlayerTest" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+collision_mask = 28
+
+[node name="Navigation" type="Navigation" parent="."]
+
+[node name="NavigationMeshInstance" type="NavigationMeshInstance" parent="Navigation"]
+navmesh = SubResource( 4 )
+
+[node name="Floor" type="MeshInstance" parent="Navigation/NavigationMeshInstance"]
+transform = Transform( 50, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="Floor2" type="MeshInstance" parent="Navigation/NavigationMeshInstance"]
+transform = Transform( 50, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Navigation/NavigationMeshInstance"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.83216, 0, 0 )
+mesh = SubResource( 5 )
+
+[node name="Enemy" parent="Navigation" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6401, 0.988955, 0 )
+collision_mask = 1
+path_to_player = NodePath("../../25DPlayerTest")
+
+[node name="NavigationAgent" type="NavigationAgent" parent="Navigation/Enemy"]
+radius = 37.49

@@ -34,6 +34,21 @@ func _process(_delta):
 #	Respawn upon falling into the void
 	if translation.y < -20:
 		translation = Vector3(0, 1, 0)
+	if can_move:
+		if Input.is_action_pressed("move_up"):
+			move_keys[0] = true
+		if Input.is_action_pressed("move_down"):
+			move_keys[1] = true
+		if Input.is_action_pressed("move_left"):
+			move_keys[2] = true
+		if Input.is_action_pressed("move_right"):
+			move_keys[3] = true
+		
+# We don't need the jump function for the time being
+#		if Input.is_action_just_pressed("space"):
+#			move_keys[4] = true
+		if Input.is_action_just_pressed("shift"):
+			move_keys[5] = true
 
 func _physics_process(_delta):
 	input_velocity = Vector3.ZERO
@@ -88,6 +103,7 @@ func dash():
 	
 	dashing = true
 	can_dash = false
+	$CollisionShape.disabled = true
 	stamina -= stamina_consump
 	speed = dash_speed
 	accel = speed
@@ -96,6 +112,7 @@ func dash():
 
 func dashEnd():
 	dashing = false
+	$CollisionShape.disabled = false
 	speed = normal_speed
 	accel = normal_accel
 
@@ -109,3 +126,7 @@ func timer(length, nextFunc):
 	timer.one_shot = true
 	add_child(timer)
 	timer.start()
+
+func _on_Hitbox_body_entered(body):
+	print_debug(body.is_attacking)
+	

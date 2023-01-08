@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://player-prototype/prototype-assets/Fu_Run.png" type="Texture" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
@@ -98,9 +98,12 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="BoxShape" id=18]
-margin = 0.001
-extents = Vector3( 0.673863, 0.69465, 0.651 )
+[sub_resource type="CylinderShape" id=40]
+height = 1.38217
+radius = 0.630972
+
+[sub_resource type="CylinderShape" id=41]
+radius = 1.64844
 
 [sub_resource type="Animation" id=19]
 length = 0.001
@@ -250,31 +253,40 @@ states/run/node = SubResource( 27 )
 states/run/position = Vector2( 471.252, 149.952 )
 transitions = [ "face-left", "idle", SubResource( 28 ), "idle", "face-left", SubResource( 29 ), "idle", "face-right", SubResource( 30 ), "face-right", "idle", SubResource( 31 ), "run", "face-left", SubResource( 32 ), "face-left", "run", SubResource( 33 ), "face-right", "run", SubResource( 34 ), "run", "face-right", SubResource( 35 ), "run", "idle", SubResource( 36 ), "idle", "run", SubResource( 37 ) ]
 start_node = "idle"
-graph_offset = Vector2( -203.748, 2.43893 )
+graph_offset = Vector2( -140.748, 39.4389 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=39]
 
 [node name="EnemyPrototype" type="KinematicBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.999536, 0 )
+collision_layer = 4
+collision_mask = 23
 script = ExtResource( 4 )
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 transform = Transform( 0.8, 0, 0, 0, 0.655321, -0.458862, 0, 0.458862, 0.655321, 0, -0.193388, 0 )
 visible = false
 use_in_baked_light = true
-flip_h = true
 alpha_cut = 2
 frames = SubResource( 17 )
 animation = "idle"
+frame = 10
 playing = true
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform( 1.88464, 0, 0, 0, 1.78142, -0.538345, 0, 0.83069, 1.15448, 0, -0.403784, 0 )
+transform = Transform( -8.23802e-08, -1.96558, 0, 1.70806, -7.78683e-08, -0.538343, 0.796483, -3.63106e-08, 1.15448, 0, -0.427723, 0 )
+use_in_baked_light = true
 texture = ExtResource( 2 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.296922, 0 )
-shape = SubResource( 18 )
+shape = SubResource( 40 )
+
+[node name="AttackRange" type="Area" parent="."]
+collision_layer = 4
+
+[node name="CollisionShape" type="CollisionShape" parent="AttackRange"]
+shape = SubResource( 41 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 19 )
@@ -289,6 +301,21 @@ anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource( 39 )
 
-[node name="Timer" type="Timer" parent="."]
+[node name="AttackPrepare" type="Timer" parent="."]
+one_shot = true
 
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[node name="AttackDuration" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
+
+[node name="AttackCooldown" type="Timer" parent="."]
+one_shot = true
+
+[node name="Pathfinding" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[connection signal="body_entered" from="AttackRange" to="." method="_on_AttackRange_body_entered"]
+[connection signal="timeout" from="AttackPrepare" to="." method="_on_AttackPrepare_timeout"]
+[connection signal="timeout" from="AttackDuration" to="." method="_on_AttackDuration_timeout"]
+[connection signal="timeout" from="AttackCooldown" to="." method="_on_AttackCooldown_timeout"]
