@@ -132,4 +132,6 @@ func timer(length, nextFunc):
 
 func _on_Hitbox_body_entered(body):
 	print_debug(body.is_attacking)
+	if body.is_attacking == true:
+		health -= body.get("damage")
 	

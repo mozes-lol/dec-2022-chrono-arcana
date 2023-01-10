@@ -16,6 +16,7 @@ onready var attackCollision: CollisionShape = $AttackRange/CollisionShape
 var can_attack = true
 var is_preparing_to_attack = false
 var is_attacking = false
+export var damage = 10
 
 func _ready() -> void:
 	_agent.set_target_location(_player.global_translation)
