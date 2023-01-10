@@ -1,8 +1,10 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://player-prototype/prototype-assets/Fu_Run.png" type="Texture" id=1]
 [ext_resource path="res://2.5DPlayerTest.gd" type="Script" id=2]
 [ext_resource path="res://player-prototype/prototype-assets/Fu_Idle.png" type="Texture" id=3]
+[ext_resource path="res://playerarrow.png" type="Texture" id=4]
+[ext_resource path="res://DirectionArrow.gd" type="Script" id=5]
 [ext_resource path="res://AnimationTree.gd" type="Script" id=17]
 [ext_resource path="res://AnimatedSprite3D.gd" type="Script" id=18]
 
@@ -299,5 +301,13 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.325391, 0 )
 shape = SubResource( 41 )
 
 [node name="InvicibilityPeriod" type="Timer" parent="."]
+
+[node name="DirectionArrow" type="Spatial" parent="."]
+transform = Transform( 1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 0, -0.945012, 0 )
+script = ExtResource( 5 )
+
+[node name="DirectionArrowSprite" type="Sprite3D" parent="DirectionArrow"]
+transform = Transform( 0.707107, -0.707107, 0, -3.09086e-08, -3.09086e-08, -1, 0.707107, 0.707107, -4.37114e-08, 0, 0, 0.806429 )
+texture = ExtResource( 4 )
 
 [connection signal="body_entered" from="Hitbox" to="." method="_on_Hitbox_body_entered"]
