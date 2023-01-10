@@ -27,7 +27,7 @@ func _physics_process(delta: float) -> void:
 	if is_preparing_to_attack == true:
 		return
 	elif is_attacking == true:
-		move_and_slide(_velocity)
+		move_and_slide(_velocity * 2)
 		return
 	
 	if _agent.is_navigation_finished():

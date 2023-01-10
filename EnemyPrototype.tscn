@@ -267,10 +267,10 @@ script = ExtResource( 4 )
 transform = Transform( 0.8, 0, 0, 0, 0.655321, -0.458862, 0, 0.458862, 0.655321, 0, -0.193388, 0 )
 visible = false
 use_in_baked_light = true
+flip_h = true
 alpha_cut = 2
 frames = SubResource( 17 )
-animation = "idle"
-frame = 10
+animation = "down"
 playing = true
 
 [node name="Sprite3D" type="Sprite3D" parent="."]

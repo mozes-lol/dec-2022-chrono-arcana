@@ -17,7 +17,6 @@ var flash_light = false
 export var take_damage = true
 export var max_health = 100
 var health = max_health
-
 var sneaking = false
 var sliding = false
 

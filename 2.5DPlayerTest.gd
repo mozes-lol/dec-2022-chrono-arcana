@@ -25,6 +25,9 @@ export var stamina_consump = 0 # Only values <= max_stamina
 export var max_stamina = 100
 var stamina = max_stamina
 
+export var max_health = 100
+var health = max_health
+
 onready var current_map = get_node_or_null("../")
 onready var move_keys = [false, false, false, false]
 
