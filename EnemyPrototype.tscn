@@ -276,6 +276,7 @@ playing = true
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform( -8.23802e-08, -1.96558, 0, 1.70806, -7.78683e-08, -0.538343, 0.796483, -3.63106e-08, 1.15448, 0, -0.427723, 0 )
 use_in_baked_light = true
+alpha_cut = 2
 texture = ExtResource( 2 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
